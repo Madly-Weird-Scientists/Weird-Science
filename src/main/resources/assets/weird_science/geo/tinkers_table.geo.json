@@ -3,12 +3,12 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.tinkers_table",
+				"identifier": "geometry.tinkers table - Converted",
 				"texture_width": 32,
 				"texture_height": 32,
-				"visible_bounds_width": 2,
-				"visible_bounds_height": 2.5,
-				"visible_bounds_offset": [0, 0.75, 0]
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
 			},
 			"bones": [
 				{
@@ -122,6 +122,7 @@
 					"name": "armMiddle",
 					"parent": "armLower",
 					"pivot": [8.5, 21, 0],
+					"rotation": [0, 0, -22.5],
 					"cubes": [
 						{
 							"origin": [7.5, 20, -1],
@@ -140,13 +141,13 @@
 				{
 					"name": "armEnd",
 					"parent": "armMiddle",
-					"pivot": [7.25, 25.15, 0],
+					"pivot": [7.05866, 24.68806, 0],
 					"rotation": [0, 0, -45],
 					"cubes": [
 						{
-							"origin": [10.41342, 23.7694, -0.5],
+							"origin": [10.22208, 23.30746, -0.5],
 							"size": [1, 4, 1],
-							"pivot": [9, 21.15, 0],
+							"pivot": [8.80866, 20.68806, 0],
 							"rotation": [0, 0, -45],
 							"uv": {
 								"north": {"uv": [20, 2], "uv_size": [1, 4]},
@@ -162,12 +163,12 @@
 				{
 					"name": "armFinal",
 					"parent": "armEnd",
-					"pivot": [6, 27.5, 0],
+					"pivot": [5.80866, 27.03806, 0],
 					"cubes": [
 						{
-							"origin": [7.41342, 27.7694, -0.5],
+							"origin": [7.22208, 27.30746, -0.5],
 							"size": [4, 1, 1],
-							"pivot": [9, 21.15, 0],
+							"pivot": [8.80866, 20.68806, 0],
 							"rotation": [0, 0, -45],
 							"uv": {
 								"north": {"uv": [14, 23], "uv_size": [-4, 1]},

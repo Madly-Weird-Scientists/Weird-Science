@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "Tinkers_table",
-		"particle": "Tinkers_table"
+		"0": "weird_science:block/tinkers_table",
+		"particle": "weird_science:block/tinkers_table"
 	},
 	"elements": [
 		{

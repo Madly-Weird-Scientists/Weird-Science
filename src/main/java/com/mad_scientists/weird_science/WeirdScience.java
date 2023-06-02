@@ -1,10 +1,12 @@
 package com.mad_scientists.weird_science;
 
+import com.mad_scientists.weird_science.init.*;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -14,6 +16,7 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
 
 import java.util.stream.Collectors;
 
@@ -24,8 +27,11 @@ public class WeirdScience
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
+    public static final String ID = "weird_science";
+
     public WeirdScience()
     {
+        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -35,6 +41,14 @@ public class WeirdScience
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
+        AllBlockEntities.register(eventBus);
+        AllBlocks.register(eventBus);
+        AllItems.register(eventBus);
+        AllMenuTypes.register(eventBus);
+        AllRecipeTypes.register(eventBus);
+
+        GeckoLib.initialize();
     }
 
     private void setup(final FMLCommonSetupEvent event)
