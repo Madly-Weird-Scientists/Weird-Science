@@ -1,7 +1,10 @@
 package com.mad_scientists.weird_science;
 
 import com.mad_scientists.weird_science.init.*;
+import com.mad_scientists.weird_science.util.ModItemGroup;
 import com.mojang.logging.LogUtils;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -15,6 +18,8 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
 
@@ -25,9 +30,11 @@ import java.util.stream.Collectors;
 public class WeirdScience
 {
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public static final String ID = "weird_science";
+
+    public static final CreativeModeTab TAB = new ModItemGroup(ID);
 
     public WeirdScience()
     {
@@ -79,7 +86,10 @@ public class WeirdScience
         // Do something when the server starts
         LOGGER.info("HELLO from server starting");
     }
-
+    @Contract("_ -> new")
+    public static @NotNull ResourceLocation asResource(String path) {
+        return new ResourceLocation(ID, path);
+    }
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
     // Event bus for receiving Registry Events)
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)

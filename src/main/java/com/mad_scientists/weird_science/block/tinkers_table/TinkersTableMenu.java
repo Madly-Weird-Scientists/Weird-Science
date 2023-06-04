@@ -33,11 +33,11 @@ public class TinkersTableMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 57, 20));
-            this.addSlot(new SlotItemHandler(handler, 1, 57, 53));
-            this.addSlot(new SlotItemHandler(handler, 2, 105, 20));
-            this.addSlot(new SlotItemHandler(handler, 3, 105, 53));
-            this.addSlot(new ModResultSlot(handler, 4, 81, 36));
+            this.addSlot(new SlotItemHandler(handler, 0, 56, 24));
+            this.addSlot(new SlotItemHandler(handler, 1, 56, 57));
+            this.addSlot(new SlotItemHandler(handler, 2, 104, 24));
+            this.addSlot(new SlotItemHandler(handler, 3, 104, 57));
+            this.addSlot(new ModResultSlot(handler, 4, 80, 40));
         });
 
         addDataSlots(data);

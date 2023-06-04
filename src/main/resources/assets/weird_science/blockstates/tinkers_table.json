@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "weird_science:block/tinkers_table/block"
+      "model": "weird_science:block/tinkers_table/base_block"
     }
   }
 }

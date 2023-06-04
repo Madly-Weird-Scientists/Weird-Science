@@ -33,7 +33,6 @@
 			"name": "armBase",
 			"from": [-3, 13, 5.5],
 			"to": [2, 17, 10.5],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 7.5]},
 			"faces": {
 				"north": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
 				"east": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
@@ -47,7 +46,6 @@
 			"name": "armLower",
 			"from": [-2, 17, 6.5],
 			"to": [1, 21, 9.5],
-			"rotation": {"angle": 0, "axis": "y", "origin": [-0.5, 17, 8]},
 			"faces": {
 				"north": {"uv": [8, 6, 9.5, 8], "texture": "#0"},
 				"east": {"uv": [8, 6, 9.5, 8], "texture": "#0"},
@@ -73,37 +71,36 @@
 		},
 		{
 			"name": "armEnd",
-			"from": [-5.15564, 35.01377, 7.5],
-			"to": [-1.15564, 36.01377, 8.5],
-			"rotation": {"angle": -45, "axis": "z", "origin": [-9, 21.15, 0]},
+			"from": [6.4869, 20.62583, 7.5],
+			"to": [7.4869, 24.62583, 8.5],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [-0.5, 21, 8]},
 			"faces": {
-				"north": {"uv": [9.5, 1, 10, 3], "rotation": 90, "texture": "#0"},
-				"east": {"uv": [9.5, 2.5, 10, 3], "rotation": 270, "texture": "#0"},
-				"south": {"uv": [9.5, 1, 10, 3], "rotation": 270, "texture": "#0"},
-				"west": {"uv": [10.5, 1, 11, 1.5], "texture": "#0"},
-				"up": {"uv": [9.5, 1, 10, 3], "rotation": 270, "texture": "#0"},
-				"down": {"uv": [9.5, 1, 10, 3], "rotation": 270, "texture": "#0"}
+				"north": {"uv": [9.5, 1, 10, 3], "texture": "#0"},
+				"east": {"uv": [9.5, 1, 10, 3], "texture": "#0"},
+				"south": {"uv": [9.5, 1, 10, 3], "texture": "#0"},
+				"west": {"uv": [9.5, 1, 10, 3], "texture": "#0"},
+				"up": {"uv": [10.5, 1, 11, 1.5], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [9.5, 2.5, 10, 3], "texture": "#0"}
 			}
 		},
 		{
 			"name": "armEnd",
-			"from": [-5.15564, 31.01377, 7.5],
-			"to": [-4.15564, 35.01377, 8.5],
-			"rotation": {"angle": -45, "axis": "z", "origin": [-9, 21.15, 0]},
+			"from": [2.4869, 23.62583, 7.5],
+			"to": [6.4869, 24.62583, 8.5],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [-0.5, 21, 8]},
 			"faces": {
-				"north": {"uv": [10.5, 1, 11, 3], "texture": "#0"},
-				"east": {"uv": [10.5, 1, 11, 3], "texture": "#0"},
-				"south": {"uv": [10.5, 1, 11, 3], "texture": "#0"},
-				"west": {"uv": [10.5, 1, 11, 3], "texture": "#0"},
-				"up": {"uv": [10.5, 1, 11, 3], "texture": "#0"},
-				"down": {"uv": [10.5, 1, 11, 3], "texture": "#0"}
+				"north": {"uv": [10.5, 1, 11, 3], "rotation": 270, "texture": "#0"},
+				"east": {"uv": [10.5, 1, 11, 3], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [10.5, 1, 11, 3], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [10.5, 1, 11, 3], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [10.5, 1, 11, 3], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [10.5, 1, 11, 3], "rotation": 90, "texture": "#0"}
 			}
 		},
 		{
 			"name": "warpLensBase",
 			"from": [14, 13, 5.5],
 			"to": [19, 17, 10.5],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 7.5]},
 			"faces": {
 				"north": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
 				"east": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
@@ -117,7 +114,6 @@
 			"name": "lensFrame",
 			"from": [15, 17, 6.5],
 			"to": [18, 21, 9.5],
-			"rotation": {"angle": 0, "axis": "y", "origin": [16.5, 17, 8]},
 			"faces": {
 				"north": {"uv": [8, 6, 9.5, 8], "texture": "#0"},
 				"east": {"uv": [8, 6, 9.5, 8], "texture": "#0"},
@@ -131,7 +127,6 @@
 			"name": "lensHolder",
 			"from": [11, 20, 7.5],
 			"to": [15, 21, 8.5],
-			"rotation": {"angle": 0, "axis": "y", "origin": [16.5, 17, 8]},
 			"faces": {
 				"north": {"uv": [10.5, 1, 11, 3], "texture": "#0"},
 				"east": {"uv": [10.5, 1, 11, 3], "texture": "#0"},
@@ -145,7 +140,6 @@
 			"name": "lens",
 			"from": [11, 17, 8],
 			"to": [15, 20, 8],
-			"rotation": {"angle": 0, "axis": "y", "origin": [16.5, 17, 8]},
 			"faces": {
 				"north": {"uv": [11.5, 1.5, 13.5, 3], "texture": "#0"},
 				"east": {"uv": [0, 0, 0, 3], "texture": "#0"},
@@ -159,7 +153,6 @@
 			"name": "quantaSlot1",
 			"from": [-1, 13, 12],
 			"to": [4, 17, 17],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 7.5]},
 			"faces": {
 				"north": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
 				"east": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
@@ -173,7 +166,6 @@
 			"name": "quantaSlot2",
 			"from": [12, 13, -1],
 			"to": [17, 17, 4],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 7.5]},
 			"faces": {
 				"north": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
 				"east": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
@@ -187,7 +179,6 @@
 			"name": "blankSlot1",
 			"from": [5.5, 13, 14],
 			"to": [10.5, 17, 19],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 7.5]},
 			"faces": {
 				"north": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
 				"east": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
@@ -201,7 +192,6 @@
 			"name": "blankSlot2",
 			"from": [5.5, 13, -3],
 			"to": [10.5, 17, 2],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 7.5]},
 			"faces": {
 				"north": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
 				"east": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
@@ -215,7 +205,6 @@
 			"name": "fluxSlot1",
 			"from": [-1, 13, -1],
 			"to": [4, 17, 4],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 7.5]},
 			"faces": {
 				"north": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
 				"east": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
@@ -229,7 +218,6 @@
 			"name": "fluxSlot2",
 			"from": [12, 13, 12],
 			"to": [17, 17, 17],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 7.5]},
 			"faces": {
 				"north": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
 				"east": {"uv": [13.5, 6, 16, 8], "texture": "#0"},
@@ -253,6 +241,13 @@
 			}
 		}
 	],
+	"display": {
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [0, -1.5, 0],
+			"scale": [0.55, 0.55, 0.55]
+		}
+	},
 	"groups": [
 		{
 			"name": "tinkersTable",

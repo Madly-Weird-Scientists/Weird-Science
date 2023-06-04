@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "weird_science:block/programming_interface/base_block"
+    }
+  }
+}

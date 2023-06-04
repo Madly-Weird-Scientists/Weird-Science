@@ -34,4 +34,7 @@ public class TinkersTableScreen extends AbstractContainerScreen<TinkersTableMenu
         super.render(pPoseStack, mouseX, mouseY, delta);
         renderTooltip(pPoseStack, mouseX, mouseY);
     }
+    @Override
+    public void renderLabels(PoseStack p_97808_, int p_97809_, int p_97810_) {
+    }
 }

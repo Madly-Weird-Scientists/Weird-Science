@@ -1,6 +1,7 @@
 package com.mad_scientists.weird_science.init;
 
 import com.mad_scientists.weird_science.WeirdScience;
+import com.mad_scientists.weird_science.block.programming_interface.ProgrammingBaseBlockEntity;
 import com.mad_scientists.weird_science.block.tinkers_table.TinkersTableBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -16,6 +17,11 @@ public class AllBlockEntities {
             BLOCK_ENTITIES.register("animated_block_entity", () ->
                     BlockEntityType.Builder.of(TinkersTableBlockEntity::new,
                             AllBlocks.TINKERS_TABLE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<ProgrammingBaseBlockEntity>> PROGRAMMING_BASE =
+            BLOCK_ENTITIES.register("programming_base", () ->
+                    BlockEntityType.Builder.of(ProgrammingBaseBlockEntity::new,
+                            AllBlocks.PROGRAMMING_BASE.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

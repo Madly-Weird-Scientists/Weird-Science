@@ -1,3 +1,7 @@
 {
-  "block.weird_science.tinkers_table": "Tinkers Table"
+  "itemGroup.weird_science": "Weird Science",
+  "block.weird_science.tinkers_table": "Tinkers Table",
+  "block.weird_science.programming_interface": "Programming Interface",
+  "block.weird_science.programming_base": "Programming Interface"
+
 }

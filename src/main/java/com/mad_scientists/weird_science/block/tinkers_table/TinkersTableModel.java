@@ -2,7 +2,6 @@ package com.mad_scientists.weird_science.block.tinkers_table;
 
 import com.mad_scientists.weird_science.WeirdScience;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib3.GeckoLib;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class TinkersTableModel extends AnimatedGeoModel<TinkersTableBlockEntity> {

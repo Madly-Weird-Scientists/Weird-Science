@@ -196,7 +196,7 @@ public class TinkersTableBlockEntity extends BlockEntity implements IAnimatable,
 
     @Override
     public @NotNull Component getDisplayName() {
-        return new TextComponent("Tinkers Table");
+        return new TextComponent("");
     }
 
     @Nullable

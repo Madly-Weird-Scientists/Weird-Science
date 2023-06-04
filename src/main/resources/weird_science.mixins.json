@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "minVersion": "0.8.2",
+  "package": "com.mad_scientists.weird_science.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "client": [
+    "GameRendererAccessor"
+  ]
+}
