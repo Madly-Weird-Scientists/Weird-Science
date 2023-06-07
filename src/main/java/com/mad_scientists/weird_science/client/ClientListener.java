@@ -1,7 +1,8 @@
 package com.mad_scientists.weird_science.client;
 
 import com.mad_scientists.weird_science.WeirdScience;
-import com.mad_scientists.weird_science.block.programming_interface.ProgrammingBaseRenderer;
+import com.mad_scientists.weird_science.block.programming_interface.base.ProgrammerBaseScreen;
+import com.mad_scientists.weird_science.block.programming_interface.base.ProgrammingBaseRenderer;
 import com.mad_scientists.weird_science.block.tinkers_table.TinkersTableRenderer;
 import com.mad_scientists.weird_science.block.tinkers_table.TinkersTableScreen;
 import com.mad_scientists.weird_science.init.AllBlockEntities;
@@ -30,6 +31,7 @@ public class ClientListener {
     public static void clientSetup(final FMLClientSetupEvent event) {
         //Inventory & UI Screens
         MenuScreens.register(AllMenuTypes.TINKERS_TABLE.get(), TinkersTableScreen::new);
+        MenuScreens.register(AllMenuTypes.PROGRAMMING_BASE.get(), ProgrammerBaseScreen::new);
 
         //Block / Item Render Types
         ItemBlockRenderTypes.setRenderLayer(AllBlocks.PROGRAMMING_INTERFACE.get(), RenderType.cutout());

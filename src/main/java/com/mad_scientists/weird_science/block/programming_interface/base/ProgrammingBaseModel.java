@@ -1,6 +1,7 @@
-package com.mad_scientists.weird_science.block.programming_interface;
+package com.mad_scientists.weird_science.block.programming_interface.base;
 
 import com.mad_scientists.weird_science.WeirdScience;
+import com.mad_scientists.weird_science.block.programming_interface.base.ProgrammingBaseBlockEntity;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 

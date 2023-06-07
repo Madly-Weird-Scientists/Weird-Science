@@ -1,20 +1,17 @@
 package com.mad_scientists.weird_science.init;
 
 import com.mad_scientists.weird_science.WeirdScience;
-import com.mad_scientists.weird_science.block.programming_interface.ProgrammerBaseBlock;
+import com.mad_scientists.weird_science.block.programming_interface.base.ProgrammerBaseBlock;
 import com.mad_scientists.weird_science.block.programming_interface.ProgrammingInterfaceBlock;
 import com.mad_scientists.weird_science.block.tinkers_table.TinkersTableBlock;
-import com.mad_scientists.weird_science.block.tinkers_table.TinkersTableBlockEntity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.lwjgl.opengl.GL11;
 
 import java.util.function.Supplier;
 

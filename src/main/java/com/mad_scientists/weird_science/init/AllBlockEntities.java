@@ -1,7 +1,7 @@
 package com.mad_scientists.weird_science.init;
 
 import com.mad_scientists.weird_science.WeirdScience;
-import com.mad_scientists.weird_science.block.programming_interface.ProgrammingBaseBlockEntity;
+import com.mad_scientists.weird_science.block.programming_interface.base.ProgrammingBaseBlockEntity;
 import com.mad_scientists.weird_science.block.tinkers_table.TinkersTableBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -14,7 +14,7 @@ public class AllBlockEntities {
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, WeirdScience.ID);
 
     public static final RegistryObject<BlockEntityType<TinkersTableBlockEntity>> TINKERS_TABLE =
-            BLOCK_ENTITIES.register("animated_block_entity", () ->
+            BLOCK_ENTITIES.register("tinkers_table", () ->
                     BlockEntityType.Builder.of(TinkersTableBlockEntity::new,
                             AllBlocks.TINKERS_TABLE.get()).build(null));
 

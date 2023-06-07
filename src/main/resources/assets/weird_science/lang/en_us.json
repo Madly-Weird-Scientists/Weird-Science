@@ -2,6 +2,66 @@
   "itemGroup.weird_science": "Weird Science",
   "block.weird_science.tinkers_table": "Tinkers Table",
   "block.weird_science.programming_interface": "Programming Interface",
-  "block.weird_science.programming_base": "Programming Interface"
+  "block.weird_science.programming_base": "Programming Interface",
+
+  "item.weird_science.capacitor": "Capacitor",
+
+  "weird_science.component.primary": "§9§nPrimary Material:§6 %s",
+  "weird_science.component.secondary": "§5§nSecondary Material:§6 %s",
+  "weird_science.component.flux": "§a§nFlux:§6 %s",
+  "weird_science.component.warp": "§d§nWarp:§6 %s",
+  "weird_science.component.quanta": "§b§nQuanta:§6 %s",
+
+  "weird_science.component.obfuscated.primary": "§9§kPrimary Material:§6§k %s",
+  "weird_science.component.obfuscated.secondary": "§5§kSecondary Material:§6§k %s",
+  "weird_science.component.obfuscated.flux": "§a§kFlux:§6§k %s",
+  "weird_science.component.obfuscated.warp": "§d§kWarp:§6§k %s",
+  "weird_science.component.obfuscated.quanta": "§b§kQuanta:§6§k %s",
+
+  "weird_science.component.unknown": "Unknown Component",
+
+  "weird_science.component.error.missingPrimary": "§4%s has no Lang entry",
+  "weird_science.component.error.missingSecondary": "§4%s has no Lang entry",
+  "weird_science.component.error.missingBoth": "§4%s have no Lang entries",
+
+
+
+  "": "",
+
+  "weird_science.component.name.quanta": "Quantum",
+  "weird_science.component.name.flux": "Flux",
+  "weird_science.component.name.warp": "Warped",
+
+  "weird_science.component.name.missing": "Missing Lang Entry",
+
+  "weird_science.material.default.primary": "Unknown",
+  "weird_science.material.default.secondary": "Component",
+
+  "weird_science.material.iron.primary": "Iron",
+  "weird_science.material.iron.secondary": "Component",
+
+  "weird_science.material.copper.primary": "Copper",
+  "weird_science.material.copper.secondary": "Capacitor",
+
+  "weird_science.material.gold.tooltip": "Gold",
+  "weird_science.material.gold.primary": "Golden",
+  "weird_science.material.gold.secondary": "Distortion Bank",
+
+  "weird_science.material.aluminum.primary": "Aluminum",
+  "weird_science.material.aluminum.secondary": "Matrix",
+
+  "weird_science.material.emerald.primary": "Emerald",
+  "weird_science.material.emerald.secondary": "Lattice",
+
+  "weird_science.material.amethyst.primary": "Amethyst",
+  "weird_science.material.amethyst.secondary": "Lattice",
+
+  "weird_science.material.diamond.primary": "Diamond",
+  "weird_science.material.diamond.secondary": "Lattice",
+
+  "weird_science.material.netherite.primary": "Netherite",
+  "weird_science.material.netherite.secondary": "Energy Vault",
+
+  "commands.component.failed.incompatible": "Modifiable component not found"
 
 }

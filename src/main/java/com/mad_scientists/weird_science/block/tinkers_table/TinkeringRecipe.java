@@ -130,7 +130,7 @@ public class TinkeringRecipe implements Recipe<SimpleContainer> {
         }
 
         @SuppressWarnings("unchecked") // Need this wrapper, because generics
-        private static <G> Class<G> castClass(Class<?> cls) {
+        public static <G> Class<G> castClass(Class<?> cls) {
             return (Class<G>)cls;
         }
     }

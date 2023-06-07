@@ -1,6 +1,7 @@
 package com.mad_scientists.weird_science.init;
 
 import com.mad_scientists.weird_science.WeirdScience;
+import com.mad_scientists.weird_science.block.programming_interface.base.ProgrammerBaseMenu;
 import com.mad_scientists.weird_science.block.tinkers_table.TinkersTableMenu;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -17,6 +18,9 @@ public class AllMenuTypes {
 
     public static final RegistryObject<MenuType<TinkersTableMenu>> TINKERS_TABLE =
             registerMenuType(TinkersTableMenu::new, "tinkers_table");
+
+    public static final RegistryObject<MenuType<ProgrammerBaseMenu>> PROGRAMMING_BASE =
+            registerMenuType(ProgrammerBaseMenu::new, "programming_base");
 
 
 
