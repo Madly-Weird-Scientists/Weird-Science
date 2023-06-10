@@ -1,14 +1,21 @@
 package com.mad_scientists.weird_science.item.component;
 
+import com.google.common.collect.Lists;
+import com.google.gson.JsonObject;
 import com.mad_scientists.weird_science.WeirdScience;
+import com.mad_scientists.weird_science.block.modification_station.Modification;
 import com.mad_scientists.weird_science.init.AllItems;
+import com.mad_scientists.weird_science.item.LensRequiringItem;
 import com.mad_scientists.weird_science.util.Lang;
 import net.minecraft.ChatFormatting;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.CreativeModeTab;
@@ -22,10 +29,15 @@ import top.theillusivec4.curios.api.CuriosApi;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
+
+import static net.minecraft.util.datafix.fixes.ItemIdFix.getItem;
+
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-@SuppressWarnings({"deprecation"})
-public class ComponentItem extends Item {
+public class ComponentItem extends LensRequiringItem {
+
+    private ResourceLocation baseModel;
+    private ResourceLocation material;
 
     public ComponentItem(Properties properties) {
         super(properties);
@@ -38,6 +50,7 @@ public class ComponentItem extends Item {
             nbt.putInt("Flux", 0);
             nbt.putInt("Warp", 0);
             nbt.putInt("Quanta", 0);
+            nbt.putInt("ModelIdentifier", 6);
             nbt.putString("Primary", "Default");
             nbt.putString("Secondary", "Default");
             nbt.putBoolean("isLensPresent", false);
@@ -45,14 +58,38 @@ public class ComponentItem extends Item {
         }
     }
 
+    @Nullable
+    public ResourceLocation getModel()
+    {
+        return baseModel;
+    }
+    @Nullable
+    public ResourceLocation getMaterial()
+    {
+        return material;
+    }
     @Override
     public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
         super.inventoryTick(itemstack, world, entity, slot, selected);
+        CompoundTag tag = itemstack.getTag();
         if (entity instanceof LivingEntity lv && CuriosApi.getCuriosHelper().findEquippedCurio(AllItems.TINKERERS_LENS.get(), lv).isPresent()) {
             itemstack.getOrCreateTag().putBoolean("isLensPresent", true);
         } else {
             itemstack.getOrCreateTag().putBoolean("isLensPresent", false);
         }
+        if (tag != null) {
+            if (tag.getString("Secondary").isEmpty()) {
+                tag.putString("Secondary", "Default");
+            }
+        }
+    }
+    public static String getSecondaryValue(ItemStack stack) {
+        CompoundTag nbt = stack.getOrCreateTag();
+        return nbt.getString("Secondary");
+    }
+    public static boolean getPrimaryValue(ItemStack stack, String key) {
+        CompoundTag nbt = stack.getOrCreateTag();
+        return nbt.getString("Primary").equals(key);
     }
 
 
@@ -71,10 +108,10 @@ public class ComponentItem extends Item {
             quanta = tag.getInt("Quanta");
             primary = Lang.translate("material." + tag.getString("Primary").toLowerCase() + ".primary").string();
             secondary = Lang.translate("material." + tag.getString("Secondary").toLowerCase() + ".secondary").string();
-            if (tag.getString("Primary").equalsIgnoreCase("")) {
+            if (tag.getString("Primary").equals("")) {
                 primary = Lang.translate("material.default.primary").string();
             }
-            if (tag.getString("Secondary").equalsIgnoreCase("")) {
+            if (tag.getString("Secondary").equals("")) {
                 primary = Lang.translate("material.default.secondary").string();
             }
         }

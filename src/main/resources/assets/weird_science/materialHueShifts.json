@@ -1,0 +1,74 @@
+{
+  "Info": {
+    "0": "This assumes you have access to Aseprite",
+    "1": "This doesn't do anything. It acts as a list of Hue shifts for use  in Aseprite to apply the right colour for each material.",
+    "2": "An 'un-shifted' sprite for a component material should use these colours for the hue shifting to work:",
+    "a": "515151",
+    "b": "787878",
+    "c": "9E9E9E",
+    "d": "C4C4C4",
+    "e": "EAEAEA",
+    "f": "FDFDFD",
+    "3": "You can find examples of 'un-shifted' Sprites in assets/weird_science/components/unshifted",
+    "4": "Once you have a greyscale sprite made, select it and press Ctrl + U to open the Hue/Saturation manager.",
+    "5": "Change the type to HSL+ and change the values to match the material."
+  },
+  "iron": {
+    "H": 0,
+    "S": -32,
+    "L": 19
+  },
+  "copper": {
+    "H": 17,
+    "S": 77,
+    "L": -3
+  },
+  "gold": {
+    "H": 44,
+    "S": 100,
+    "L": -6
+  },
+  "aluminum": {
+    "H": 167,
+    "S": 7,
+    "L": 11
+  },
+  "emerald": {
+    "H": 124,
+    "S": 80,
+    "L": -6
+  },
+  "amethyst": {
+    "H": -98,
+    "S": 60,
+    "L": 5
+  },
+  "diamond": {
+    "H": -180,
+    "S": 80,
+    "L": 0
+  },
+  "netherite": {
+      "": "Doesn't have a key as the colours are difficult to produce. Use the palette from the ingot sprite and manually recolour the sprites."
+  },
+  "Extra Materials": {
+    "Info": "These are material Hue Shifts that aren't necessarily needed but exist for each material that is from an ore or can be classed as an alloy. Also includes shifts for modifier colours.",
+    "quartz": {
+      "H": -12,
+      "S": 23,
+      "L": 1,
+      "Unselect Value": "G"
+    },
+    "blaze_powder": {
+      "H": 39,
+      "S": 97,
+      "L": -3,
+      "Unselect Value": "G"
+    },
+    "redstone": {
+      "H": 0,
+      "S": 100,
+      "L": -6
+    }
+  }
+}

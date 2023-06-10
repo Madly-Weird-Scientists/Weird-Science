@@ -1,6 +1,16 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "item/generated",
   "textures": {
-    "layer0": "weird_science:item/capacitor"
-  }
+    "layer0": "weird_science:item/component/component"
+  },
+  "overrides": [
+    { "predicate": { "weird_science": "iron" }, "model": "weird_science:item/component/component" },
+    { "predicate": { "weird_science": "copper" }, "model": "weird_science:item/component/capacitor" },
+    { "predicate": { "weird_science": "gold" }, "model": "weird_science:item/component/distortion_bank" },
+    { "predicate": { "weird_science": "aluminum" }, "model": "weird_science:item/component/matrix" },
+    { "predicate": { "weird_science": "emerald" }, "model": "weird_science:item/component/lattice/emerald" },
+    { "predicate": { "weird_science": "amethyst" }, "model": "weird_science:item/component/lattice/amethyst" },
+    { "predicate": { "weird_science": "diamond" }, "model": "weird_science:item/component/lattice/diamond" },
+    { "predicate": { "weird_science": "netherite" }, "model": "weird_science:item/component/energy_vault" }
+  ]
 }
