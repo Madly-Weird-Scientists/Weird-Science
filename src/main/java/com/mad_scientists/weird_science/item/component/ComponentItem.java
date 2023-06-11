@@ -1,9 +1,6 @@
 package com.mad_scientists.weird_science.item.component;
 
-import com.google.common.collect.Lists;
-import com.google.gson.JsonObject;
 import com.mad_scientists.weird_science.WeirdScience;
-import com.mad_scientists.weird_science.block.modification_station.Modification;
 import com.mad_scientists.weird_science.init.AllItems;
 import com.mad_scientists.weird_science.item.LensRequiringItem;
 import com.mad_scientists.weird_science.util.Lang;
@@ -11,15 +8,12 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -29,8 +23,6 @@ import top.theillusivec4.curios.api.CuriosApi;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
-
-import static net.minecraft.util.datafix.fixes.ItemIdFix.getItem;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
@@ -53,7 +45,7 @@ public class ComponentItem extends LensRequiringItem {
             nbt.putInt("ModelIdentifier", 6);
             nbt.putString("Primary", "Default");
             nbt.putString("Secondary", "Default");
-            nbt.putBoolean("isLensPresent", false);
+            nbt.putBoolean("isLensPresent", true);
             items.add(stack);
         }
     }
@@ -72,14 +64,21 @@ public class ComponentItem extends LensRequiringItem {
     public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
         super.inventoryTick(itemstack, world, entity, slot, selected);
         CompoundTag tag = itemstack.getTag();
+        //entity instanceof LivingEntity lv && CuriosApi.getCuriosHelper().findEquippedCurio(AllItems.TINKERERS_LENS.get(), lv).isPresent()
         if (entity instanceof LivingEntity lv && CuriosApi.getCuriosHelper().findEquippedCurio(AllItems.TINKERERS_LENS.get(), lv).isPresent()) {
             itemstack.getOrCreateTag().putBoolean("isLensPresent", true);
-        } else {
+        }
+        else {
             itemstack.getOrCreateTag().putBoolean("isLensPresent", false);
         }
         if (tag != null) {
             if (tag.getString("Secondary").isEmpty()) {
                 tag.putString("Secondary", "Default");
+            }
+        }
+        if (tag != null) {
+            if (tag.getString("Primary").isEmpty()) {
+                tag.putString("Primary", "Default");
             }
         }
     }

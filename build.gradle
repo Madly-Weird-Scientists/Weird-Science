@@ -168,6 +168,9 @@ repositories {
     maven {
         url = "https://maven.theillusivec4.top/"
     }
+    maven {
+        url = 'https://maven.blamejared.com'
+    }
 }
 
 dependencies {
@@ -189,11 +192,14 @@ dependencies {
     // Geckolib
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.18:3.0.46')
     // Curios
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.18.2-5.0.9.0")
-    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.18.2-5.0.9.0:api")
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${mc_version}-${curios_version}")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${mc_version}-${curios_version}:api")
     // JEI
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
+    // Patchouli
+    //compileOnly fg.deobf("vazkii.patchouli:Patchouli:${mc_version}-${patchouli_version}:api")
+    //implementation fg.deobf("vazkii.patchouli:Patchouli:${mc_version}-${patchouli_version}")
 
 
     // Examples using mod jars from ./libs

@@ -1,0 +1,11 @@
+{
+  "name": "weird_science.tablet.name",
+  "landing_text": "weird_science.tablet.landing_text",
+  "dont_generate_book":true,
+  "custom_book_item":"weird_science:scientists_tablet",
+  "version": "1",
+  "creative_tab": "weird_science",
+  "i18n": true,
+  "show_progress":false,
+  "book_texture": "weird_science:textures/gui/tablet/texture.png"
+}

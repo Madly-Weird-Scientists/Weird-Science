@@ -43,10 +43,6 @@ public class ClientListener {
     @SubscribeEvent
     static void registerModelLoader(ModelRegistryEvent event) {
 
-        register(AllItems.COMPONENT.get(), new ResourceLocation("firework"), (itemStack, clientLevel, livingEntity, i) -> {
-            return livingEntity != null && CrossbowItem.isCharged(itemStack) && CrossbowItem.containsChargedProjectile(itemStack, Items.FIREWORK_ROCKET) ? 1.0F : 0.0F;
-        });
-
         ItemStack itemStack = new ItemStack(AllItems.COMPONENT.get());
         CompoundTag nbt = itemStack.getOrCreateTag();
         CompoundTag tag = itemStack.getTag();
