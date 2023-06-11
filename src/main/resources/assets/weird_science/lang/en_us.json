@@ -7,10 +7,8 @@
 
 
   "item.weird_science.tinkerers_lens": "Tinkerer's Lens",
+
   "curios.identifier.module_mind": "Mind Modifier",
-
-
-
 
   "Section": "Component Stuff",
 
@@ -78,6 +76,36 @@
   "weird_science.material.netherite.secondary": "Energy Vault",
   "weird_science.materialIdentifier.netherite": 8,
 
-  "commands.component.failed.incompatible": "Modifiable component not found"
+  "commands.component.failed.incompatible": "Modifiable component not found",
 
+
+  "Guidebook": "Scientist's Tablet",
+
+  "item.weird_science.scientists_tablet": "Scientist's Tablet",
+  "weird_science.tablet.landing_text": "§6§lWelcome to the Scientist's §6§lTablet!§r This acts as documentation guidebook for Weird Science.",
+
+  "Chapter 1": "Getting Started",
+  "weird_science.tablet.getting_started": "Getting Started",
+  "weird_science.tablet.getting_started_desc": "Weird Science aims to add gadgets in a mad science style by utilizing fantasy style SciFi and a gadget building system.",
+  "weird_science.tablet.page.values": "Values",
+  "weird_science.tablet.page1.values": "Values are used to determine the properties of a component. In order for a gadget to work, the corresponding components must achieve values of a high enough degree. These values are §1Quanta§r, §2Flux§r, and §5Warp§r.",
+  "weird_science.tablet.page.quanta": "§1Quanta",
+  "weird_science.tablet.page1.quanta": "§1Quanta is a value that represents Positioning and Capacity.",
+  "weird_science.tablet.page2.quanta": "Materials rich in Quanta include: Redstone, Prismarine, Aluminum, and Diamond.",
+  "weird_science.tablet.page.flux": "§2Flux",
+  "weird_science.tablet.page1.flux": "§2Flux is a value that represents Electricity and Magic.",
+  "weird_science.tablet.page2.flux": "Materials rich in Flux include: Quartz, Blaze Powder, Copper, and Emerald.",
+  "weird_science.tablet.page.warp": "§5Warp",
+  "weird_science.tablet.page1.warp": "§5Warp is a value that represents Ender Tech and Bending Space.",
+  "weird_science.tablet.page2.warp": "Materials rich in Warp include: Ender Pearls, Dragon's Breath, Gold, and Amethyst.",
+  "weird_science.tablet.page.netherite": "Properties of Netherite",
+  "weird_science.tablet.page1.netherite": "Netherite is a material that is rich in all three values, but is also very rare. It is found in the Nether, and can be used to create powerful gadgets.",
+
+  "Chapter 2": "Gadgets and Modules",
+  "weird_science.tablet.gadgets_and_modules": "Gadgets and Modules",
+  "weird_science.tablet.gadgets_and_modules_desc": "Gadgets and Modules are the main components of Weird Science and act as the backbone of a scientists future advancements.",
+  "weird_science.tablet.page.modules": "Modules",
+  "weird_science.tablet.page1.modules": "Modules are modifiers for the Player. They can be equipped in the Curios Inventory, and can be used to enhance the player's abilities.",
+  "weird_science.tablet.page.tinkerers_lens": "Tinkerer's Lens",
+  "weird_science.tablet.page1.tinkerers_lens": "The Tinkerer's Lens is a tool that, when equipped in the Curios Inventory, allows the player to see the information of a Component."
 }

@@ -1,0 +1,16 @@
+{
+  "name": "weird_science.tablet.page.tinkerers_lens",
+  "category": "weird_science:modules",
+  "sortnum": 0,
+  "icon": "weird_science:tinkerers_lens",
+  "pages": [
+    {
+      "text": "weird_science.tablet.page1.tinkerers_lens",
+      "type": "patchouli:text"
+    },
+    {
+      "recipe": "weird_science:crafting/modules/tinkerers_lens",
+      "type": "patchouli:crafting"
+    }
+  ]
+}

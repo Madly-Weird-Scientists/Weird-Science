@@ -1,0 +1,12 @@
+{
+  "name": "weird_science.tablet.page.netherite",
+  "category": "weird_science:getting_started",
+  "sortnum": 4,
+  "icon": "minecraft:netherite_ingot",
+  "pages": [
+    {
+      "text": "weird_science.tablet.page1.netherite",
+      "type": "patchouli:text"
+    }
+  ]
+}

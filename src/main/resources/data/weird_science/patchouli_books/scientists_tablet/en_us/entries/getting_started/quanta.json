@@ -1,0 +1,16 @@
+{
+  "name": "weird_science.tablet.page.quanta",
+  "category": "weird_science:getting_started",
+  "sortnum": 3,
+  "icon": "minecraft:prismarine_crystals",
+  "pages": [
+    {
+      "text": "weird_science.tablet.page1.quanta",
+      "type": "patchouli:text"
+    },
+    {
+      "text": "weird_science.tablet.page2.quanta",
+      "type": "patchouli:text"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "weird_science.tablet.page.flux",
+  "category": "weird_science:getting_started",
+  "sortnum": 1,
+  "icon": "minecraft:blaze_powder",
+  "pages": [
+    {
+      "text": "weird_science.tablet.page1.flux",
+      "type": "patchouli:text"
+    },
+    {
+      "text": "weird_science.tablet.page2.flux",
+      "type": "patchouli:text"
+    }
+  ]
+}

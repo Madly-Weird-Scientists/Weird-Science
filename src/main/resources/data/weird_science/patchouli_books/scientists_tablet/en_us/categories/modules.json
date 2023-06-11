@@ -1,0 +1,7 @@
+{
+  "name": "weird_science.tablet.modules",
+  "parent": "weird_science:gadgets_and_modules",
+  "description": "weird_science.tablet.modules_desc",
+  "icon": "weird_science:tinkerers_lens",
+  "sortnum":0
+}

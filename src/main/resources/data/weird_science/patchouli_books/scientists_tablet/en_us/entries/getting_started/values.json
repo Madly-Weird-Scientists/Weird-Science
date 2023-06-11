@@ -1,0 +1,21 @@
+{
+  "name": "weird_science.tablet.page.values",
+  "category": "weird_science:getting_started",
+  "sortnum": 0,
+  "icon": "minecraft:diamond",
+  "pages": [
+    {
+      "text": "weird_science.tablet.page1.values",
+      "type": "patchouli:text"
+    },
+    {
+      "entries": [
+        "weird_science:getting_started/flux",
+        "weird_science:getting_started/warp",
+        "weird_science:getting_started/quanta",
+        "weird_science:getting_started/netherite"
+      ],
+      "type": "patchouli:relations"
+    }
+  ]
+}
