@@ -1,1 +1,28 @@
-{}
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "123",
+    "454",
+    "321"
+  ],
+  "key": {
+    "1": {
+      "tag": "forge:nuggets/iron"
+    },
+    "2": {
+      "tag": "forge:ingots/iron"
+    },
+    "3": {
+      "tag": "forge:nuggets/gold"
+    },
+    "4": {
+      "tag": "forge:ingots/gold"
+    },
+    "5": {
+      "item": "minecraft:yellow_stained_glass"
+    }
+  },
+  "result": {
+    "item": "weird_science:tinkerers_lens"
+  }
+}

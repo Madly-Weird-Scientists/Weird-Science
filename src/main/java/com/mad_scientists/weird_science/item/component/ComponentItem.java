@@ -1,11 +1,14 @@
 package com.mad_scientists.weird_science.item.component;
 
 import com.mad_scientists.weird_science.WeirdScience;
+import com.mad_scientists.weird_science.client.component.ComponentRenderer;
 import com.mad_scientists.weird_science.init.AllItems;
 import com.mad_scientists.weird_science.item.LensRequiringItem;
 import com.mad_scientists.weird_science.util.Lang;
 import net.minecraft.ChatFormatting;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -17,20 +20,26 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.IItemRenderProperties;
+import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
+import java.util.function.Consumer;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class ComponentItem extends LensRequiringItem {
-
-    private ResourceLocation baseModel;
-    private ResourceLocation material;
-
+@SuppressWarnings("deprecation")
+@Mod.EventBusSubscriber(
+        modid = "weird_science",
+        bus = Mod.EventBusSubscriber.Bus.FORGE
+)
+public class ComponentItem extends LensRequiringItem implements IManualModelLoading{
     public ComponentItem(Properties properties) {
         super(properties);
     }
@@ -48,17 +57,6 @@ public class ComponentItem extends LensRequiringItem {
             nbt.putBoolean("isLensPresent", true);
             items.add(stack);
         }
-    }
-
-    @Nullable
-    public ResourceLocation getModel()
-    {
-        return baseModel;
-    }
-    @Nullable
-    public ResourceLocation getMaterial()
-    {
-        return material;
     }
     @Override
     public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
@@ -90,7 +88,27 @@ public class ComponentItem extends LensRequiringItem {
         CompoundTag nbt = stack.getOrCreateTag();
         return nbt.getString("Primary").equals(key);
     }
+    public void initializeClient(Consumer<IItemRenderProperties> consumer) {
+        consumer.accept(new IItemRenderProperties() {
+            public BlockEntityWithoutLevelRenderer getItemStackRenderer() {
+                return ComponentRenderer.INSTANCE;
+            }
+        });
+    }
+    @OnlyIn(Dist.CLIENT)
+    public void loadModels(Consumer<ModelResourceLocation> consumer) {
+        ItemStack stack = new ItemStack(this);
+        CompoundTag tag = stack.getTag();
+        String type = "component";
+        String material = "gold";
+        if (tag != null) {
+            type = tag.getString("Secondary").toLowerCase();
+            material = tag.getString("Primary").toLowerCase();
+        }
+            consumer.accept(new ModelResourceLocation("weird_science:textures/item/component/%s/material/%s#inventory".formatted(type.toLowerCase(), material.toLowerCase())));
+            consumer.accept(new ModelResourceLocation("weird_science:textures/item/component/%s/unmodified#inventory".formatted(type.toLowerCase())));
 
+        }
 
     public String getItemName(ItemStack itemStack) {
         String primary = Lang.translate("material.default.primary").string();

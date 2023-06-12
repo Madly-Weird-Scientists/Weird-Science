@@ -104,8 +104,8 @@
   "Chapter 2": "Gadgets and Modules",
   "weird_science.tablet.gadgets_and_modules": "Gadgets and Modules",
   "weird_science.tablet.gadgets_and_modules_desc": "Gadgets and Modules are the main components of Weird Science and act as the backbone of a scientists future advancements.",
-  "weird_science.tablet.page.modules": "Modules",
-  "weird_science.tablet.page1.modules": "Modules are modifiers for the Player. They can be equipped in the Curios Inventory, and can be used to enhance the player's abilities.",
+  "weird_science.tablet.modules": "Modules",
+  "weird_science.tablet.modules_desc": "Modules are modifiers for the Player. They can be equipped in the Curios Inventory, and can be used to enhance the player's abilities.",
   "weird_science.tablet.page.tinkerers_lens": "Tinkerer's Lens",
   "weird_science.tablet.page1.tinkerers_lens": "The Tinkerer's Lens is a tool that, when equipped in the Curios Inventory, allows the player to see the information of a Component."
 }

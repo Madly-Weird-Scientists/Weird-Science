@@ -1,0 +1,8 @@
+aluminum
+amethyst
+copper
+diamond
+emerald
+gold
+iron
+netherite
