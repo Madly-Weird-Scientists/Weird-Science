@@ -15,16 +15,17 @@ public class JsonModelDeleter {
                     .filter(path -> path.getFileName().toString().matches("component_variant_[a-zA-Z0-9]+_[a-zA-Z0-9]+\\.json"))
                     .forEach(JsonModelDeleter::deleteFile);
         } catch (Exception e) {
-            System.out.println("An error occurred while deleting files: " + e.getMessage());
+            System.out.println("An error occurred while purging files: " + e.getMessage());
         }
     }
 
     private static void deleteFile(Path filePath) {
         try {
             Files.delete(filePath);
-            System.out.println("Deleted file: " + filePath);
+            System.out.println("Purged file: " + filePath);
         } catch (Exception e) {
-            System.out.println("Failed to delete file: " + filePath);
+            System.out.println("Failed to purge file: " + filePath);
         }
     }
+
 }
