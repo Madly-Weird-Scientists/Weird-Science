@@ -32,12 +32,12 @@ public class JsonModelWriter {
         JsonObject textures = new JsonObject();
 
         json.addProperty("parent", "item/generated");
-        textures.addProperty("layer0", "weird_science:item/component/copper/material/" + material);
-        textures.addProperty("layer1", "weird_science:item/component/copper/" + type);
+        textures.addProperty("layer0", "weird_science:item/component/" + type + "/material/" + material);
+        textures.addProperty("layer1", "weird_science:item/component/" + type + "/unmodified");
 
         json.add("textures", textures);
 
-        String fileName = "src/main/resources/assets/weird_science/models/item/component_variants/component_" + type + "_" + material + ".json";
+        String fileName = "src/main/resources/assets/weird_science/models/item/component_variants/component_variant_" + type + "_" + material + ".json";
 
         try (FileWriter file = new FileWriter(fileName)) {
             file.write(json.toString());
