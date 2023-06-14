@@ -1,7 +1,6 @@
 package com.mad_scientists.weird_science.item.component;
 
 import com.mad_scientists.weird_science.WeirdScience;
-import com.mad_scientists.weird_science.client.component.ComponentRenderer;
 import com.mad_scientists.weird_science.init.AllItems;
 import com.mad_scientists.weird_science.item.LensRequiringItem;
 import com.mad_scientists.weird_science.util.Lang;
@@ -13,7 +12,6 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.CreativeModeTab;
@@ -25,6 +23,10 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.IItemRenderProperties;
 import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
+import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib3.core.manager.AnimationData;
+import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib3.util.GeckoLibUtil;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import javax.annotation.Nullable;
@@ -39,7 +41,7 @@ import java.util.function.Consumer;
         modid = "weird_science",
         bus = Mod.EventBusSubscriber.Bus.FORGE
 )
-public class ComponentItem extends LensRequiringItem implements IManualModelLoading{
+public class ComponentItem extends LensRequiringItem implements IManualModelLoading, IAnimatable {
     public ComponentItem(Properties properties) {
         super(properties);
     }
@@ -87,13 +89,6 @@ public class ComponentItem extends LensRequiringItem implements IManualModelLoad
     public static boolean getPrimaryValue(ItemStack stack, String key) {
         CompoundTag nbt = stack.getOrCreateTag();
         return nbt.getString("Primary").equals(key);
-    }
-    public void initializeClient(Consumer<IItemRenderProperties> consumer) {
-        consumer.accept(new IItemRenderProperties() {
-            public BlockEntityWithoutLevelRenderer getItemStackRenderer() {
-                return ComponentRenderer.INSTANCE;
-            }
-        });
     }
     @OnlyIn(Dist.CLIENT)
     public void loadModels(Consumer<ModelResourceLocation> consumer) {
@@ -186,5 +181,29 @@ public class ComponentItem extends LensRequiringItem implements IManualModelLoad
             tooltip.add(Component.nullToEmpty(Lang.translateDirect("component.obfuscated.quanta", stack.getTag().getInt("Quanta")).withStyle(ChatFormatting.AQUA).getString()));
             }
         }
+    }
+
+    @Override
+    public void initializeClient(Consumer<IItemRenderProperties> consumer) {
+        super.initializeClient(consumer);
+        consumer.accept(new IItemRenderProperties() {
+            private final BlockEntityWithoutLevelRenderer renderer = new ComponentRenderer();
+
+            @Override
+            public BlockEntityWithoutLevelRenderer getItemStackRenderer() {
+                return renderer;
+            }
+        });
+    }
+
+    public AnimationFactory factory = new AnimationFactory(this);
+    @Override
+    public void registerControllers(AnimationData data) {
+
+    }
+
+    @Override
+    public AnimationFactory getFactory() {
+        return this.factory;
     }
 }

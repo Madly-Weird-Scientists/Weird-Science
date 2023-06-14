@@ -1,12 +1,17 @@
 package com.mad_scientists.weird_science;
 
+import com.mad_scientists.weird_science.client.ClientListener;
 import com.mad_scientists.weird_science.init.*;
 import com.mad_scientists.weird_science.util.ModItemGroup;
 import com.mojang.logging.LogUtils;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.feature.configurations.GlowLichenConfiguration;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -18,12 +23,18 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 
+
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -46,6 +57,7 @@ public class WeirdScience
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         // Register the processIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientListener::setUpClient);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -55,11 +67,13 @@ public class WeirdScience
         AllItems.register(eventBus);
         AllMenuTypes.register(eventBus);
         AllRecipeTypes.register(eventBus);
+        AllTags.init();
+        AllSpecialRecipes.register(eventBus);
+        AllEntities.register(eventBus);
 
         GeckoLib.initialize();
 
     }
-
     private void setup(final FMLCommonSetupEvent event)
     {
         // some preinit code
@@ -73,7 +87,7 @@ public class WeirdScience
     {
         // Some example code to dispatch IMC to another mod
         InterModComms.sendTo("weird_science", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
-        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("module_mind").size(2).build());
+        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("mind").size(2).build());
     }
 
     private void processIMC(final InterModProcessEvent event)

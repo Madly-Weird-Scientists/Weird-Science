@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:redstone",
+    "minecraft:prismarine_shard",
+    "minecraft:prismarine_crystals"
+  ]
+}

@@ -1,6 +1,5 @@
-package com.mad_scientists.weird_science.item.component.util;
+package com.mad_scientists.weird_science.item.component.util.asset_generators;
 
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;

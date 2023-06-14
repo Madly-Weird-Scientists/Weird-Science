@@ -6,37 +6,28 @@ import com.mad_scientists.weird_science.block.programming_interface.base.Program
 import com.mad_scientists.weird_science.block.programming_interface.base.ProgrammingBaseRenderer;
 import com.mad_scientists.weird_science.block.tinkers_table.TinkersTableRenderer;
 import com.mad_scientists.weird_science.block.tinkers_table.TinkersTableScreen;
-import com.mad_scientists.weird_science.client.component.ComponentRenderer;
 import com.mad_scientists.weird_science.init.AllBlockEntities;
 import com.mad_scientists.weird_science.init.AllBlocks;
-import com.mad_scientists.weird_science.init.AllItems;
+import com.mad_scientists.weird_science.init.AllEntities;
 import com.mad_scientists.weird_science.init.AllMenuTypes;
-import com.mojang.blaze3d.vertex.BufferBuilder;
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.block.model.ItemTransforms;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.Collection;
 import java.util.Map;
-import java.util.Set;
 
-@SuppressWarnings({"deprecation", "unchecked"})
+@SuppressWarnings({"deprecation"})
 @Mod.EventBusSubscriber(modid = WeirdScience.ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientListener {
     private static final Map<Item, Map<ResourceLocation, ItemPropertyFunction>> PROPERTIES = Maps.newHashMap();
@@ -46,7 +37,11 @@ public class ClientListener {
         }).put(location, itemPropertyFunction);
     }
 
+    public static void setUpClient(EntityRenderersEvent event) {
+        EntityRenderers.register(AllEntities.REPULSION_CAPSULE_ENTITY.get(), ThrownItemRenderer::new);
+        EntityRenderers.register(AllEntities.PROPULSION_CAPSULE_ENTITY.get(), ThrownItemRenderer::new);
 
+    }
     @SubscribeEvent
     static void registerModelLoader(ModelRegistryEvent event) {
 
@@ -100,5 +95,6 @@ public class ClientListener {
 
         //Block / Item Render Types
         ItemBlockRenderTypes.setRenderLayer(AllBlocks.PROGRAMMING_INTERFACE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(AllBlocks.REPULSION_GEL.get(), RenderType.translucent());
     }
 }

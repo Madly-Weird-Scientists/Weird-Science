@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#weird_science:value_rich/flux",
+    "#weird_science:value_rich/warp",
+    "#weird_science:value_rich/quanta"
+  ]
+}

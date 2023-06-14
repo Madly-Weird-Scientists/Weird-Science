@@ -1,0 +1,7 @@
+{
+  "parent": "weird_science:block/gel",
+  "textures": {
+    "gel": "weird_science:block/gel/repulsion",
+    "particle": "weird_science:block/gel/repulsion"
+  }
+}

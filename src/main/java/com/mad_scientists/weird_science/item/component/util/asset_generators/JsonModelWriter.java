@@ -1,4 +1,4 @@
-package com.mad_scientists.weird_science.item.component.util;
+package com.mad_scientists.weird_science.item.component.util.asset_generators;
 
 import com.google.gson.JsonObject;
 

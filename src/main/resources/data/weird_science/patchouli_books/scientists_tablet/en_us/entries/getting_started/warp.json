@@ -2,7 +2,7 @@
   "name": "weird_science.tablet.page.warp",
   "category": "weird_science:getting_started",
   "sortnum": 2,
-  "icon": "minecraft:ender_pearl",
+  "icon": "weird_science:warp_capsule",
   "pages": [
     {
       "text": "weird_science.tablet.page1.warp",

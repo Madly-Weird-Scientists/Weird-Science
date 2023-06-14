@@ -2,7 +2,7 @@
   "name": "weird_science.tablet.page.quanta",
   "category": "weird_science:getting_started",
   "sortnum": 3,
-  "icon": "minecraft:prismarine_crystals",
+  "icon": "weird_science:quanta_capsule",
   "pages": [
     {
       "text": "weird_science.tablet.page1.quanta",

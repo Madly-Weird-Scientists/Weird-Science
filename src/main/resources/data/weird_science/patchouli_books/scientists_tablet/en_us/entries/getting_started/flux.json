@@ -2,7 +2,7 @@
   "name": "weird_science.tablet.page.flux",
   "category": "weird_science:getting_started",
   "sortnum": 1,
-  "icon": "minecraft:blaze_powder",
+  "icon": "weird_science:flux_capsule",
   "pages": [
     {
       "text": "weird_science.tablet.page1.flux",

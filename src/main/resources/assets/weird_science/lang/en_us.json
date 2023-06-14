@@ -6,11 +6,65 @@
 
 
 
-  "item.weird_science.tinkerers_lens": "Tinkerer's Lens",
+  "item.weird_science.tinkerers_lens": "Genius Eye",
 
   "curios.identifier.module_mind": "Mind Modifier",
 
-  "Section": "Component Stuff",
+  "Section1": "Capsule Stuff (Most of this is just tooltips lol)",
+  "item.weird_science.capsule": "Capsule",
+  "item.weird_science.flux_capsule": "Flux Capsule",
+  "item.weird_science.warp_capsule": "Warp Capsule",
+  "item.weird_science.quanta_capsule": "Quanta Capsule",
+
+  "weird_science.capsule.value.empty": "§7▒▒▒▒▒▒▒▒",
+  "weird_science.capsule.value.capacity": "§9Capacity: %s",
+
+  "weird_science.capsule.value.capacity.empty": "§9Capacity: §6[0%]",
+
+  "weird_science.capsule.value.percentage.0" : "§6[0%]",
+  "weird_science.capsule.value.percentage.1" : "§6[12.5%]",
+  "weird_science.capsule.value.percentage.2" : "§6[25%]",
+  "weird_science.capsule.value.percentage.3" : "§6[37.5%]",
+  "weird_science.capsule.value.percentage.4" : "§6[50%]",
+  "weird_science.capsule.value.percentage.5" : "§6[62.5%]",
+  "weird_science.capsule.value.percentage.6" : "§6[75%]",
+  "weird_science.capsule.value.percentage.7" : "§6[87.5%]",
+  "weird_science.capsule.value.percentage.8" : "§6[100%]",
+
+  "weird_science.capsule.value.flux.0" : "§2▒▒▒▒▒▒▒▒",
+  "weird_science.capsule.value.flux.1" : "§a█§2▒▒▒▒▒▒▒",
+  "weird_science.capsule.value.flux.2" : "§a██§2▒▒▒▒▒▒",
+  "weird_science.capsule.value.flux.3" : "§a███§2▒▒▒▒▒",
+  "weird_science.capsule.value.flux.4" : "§a████§2▒▒▒▒",
+  "weird_science.capsule.value.flux.5" : "§a█████§2▒▒▒",
+  "weird_science.capsule.value.flux.6" : "§a██████§2▒▒",
+  "weird_science.capsule.value.flux.7" : "§a███████§2▒",
+  "weird_science.capsule.value.flux.8" : "§a████████",
+
+  "weird_science.capsule.value.warp.0" : "§5▒▒▒▒▒▒▒▒",
+  "weird_science.capsule.value.warp.1" : "§d█§5▒▒▒▒▒▒▒",
+  "weird_science.capsule.value.warp.2" : "§d██§5▒▒▒▒▒▒",
+  "weird_science.capsule.value.warp.3" : "§d███§5▒▒▒▒▒",
+  "weird_science.capsule.value.warp.4" : "§d████§5▒▒▒▒",
+  "weird_science.capsule.value.warp.5" : "§d█████§5▒▒▒",
+  "weird_science.capsule.value.warp.6" : "§d██████§5▒▒",
+  "weird_science.capsule.value.warp.7" : "§d███████§5▒",
+  "weird_science.capsule.value.warp.8" : "§d████████",
+
+  "weird_science.capsule.value.quanta.0" : "§9▒▒▒▒▒▒▒▒",
+  "weird_science.capsule.value.quanta.1" : "§b█§9▒▒▒▒▒▒▒",
+  "weird_science.capsule.value.quanta.2" : "§b██§9▒▒▒▒▒▒",
+  "weird_science.capsule.value.quanta.3" : "§b███§9▒▒▒▒▒",
+  "weird_science.capsule.value.quanta.4" : "§b████§9▒▒▒▒",
+  "weird_science.capsule.value.quanta.5" : "§b█████§9▒▒▒",
+  "weird_science.capsule.value.quanta.6" : "§b██████§9▒▒",
+  "weird_science.capsule.value.quanta.7" : "§b███████§9▒",
+  "weird_science.capsule.value.quanta.8" : "§b████████",
+
+
+
+
+  "Section2": "Component Stuff (Material names and tooltips)",
 
   "weird_science.component.primary": "§9§nPrimary Material:§6 %s",
   "weird_science.component.secondary": "§5§nSecondary Material:§6 %s",
@@ -45,41 +99,33 @@
 
   "weird_science.material.iron.primary": "Iron",
   "weird_science.material.iron.secondary": "Component",
-  "weird_science.materialIdentifier.iron": 1,
 
   "weird_science.material.copper.primary": "Copper",
   "weird_science.material.copper.secondary": "Capacitor",
-  "weird_science.materialIdentifier.copper": 2,
 
   "weird_science.material.gold.tooltip": "Gold",
   "weird_science.material.gold.primary": "Golden",
   "weird_science.material.gold.secondary": "Distortion Bank",
-  "weird_science.materialIdentifier.gold": 3,
 
   "weird_science.material.aluminum.primary": "Aluminum",
   "weird_science.material.aluminum.secondary": "Matrix",
-  "weird_science.materialIdentifier.aluminum": 4,
 
   "weird_science.material.emerald.primary": "Emerald",
   "weird_science.material.emerald.secondary": "Lattice",
-  "weird_science.materialIdentifier.emerald": 5,
 
   "weird_science.material.amethyst.primary": "Amethyst",
   "weird_science.material.amethyst.secondary": "Lattice",
-  "weird_science.materialIdentifier.amethyst": 6,
 
   "weird_science.material.diamond.primary": "Diamond",
   "weird_science.material.diamond.secondary": "Lattice",
-  "weird_science.materialIdentifier.diamond": 7,
 
   "weird_science.material.netherite.primary": "Netherite",
   "weird_science.material.netherite.secondary": "Energy Vault",
-  "weird_science.materialIdentifier.netherite": 8,
 
   "commands.component.failed.incompatible": "Modifiable component not found",
 
 
-  "Guidebook": "Scientist's Tablet",
+  "Guidebook": "Scientist's Tablet (AKA the Guidebook for Weird Science)",
 
   "item.weird_science.scientists_tablet": "Scientist's Tablet",
   "weird_science.tablet.landing_text": "§6§lWelcome to the Scientist's §6§lTablet!§r This acts as documentation guidebook for Weird Science.",

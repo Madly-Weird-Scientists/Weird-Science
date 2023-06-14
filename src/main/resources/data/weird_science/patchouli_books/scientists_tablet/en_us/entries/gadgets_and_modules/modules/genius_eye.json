@@ -1,0 +1,16 @@
+{
+  "name": "weird_science.tablet.page.genius_eye",
+  "category": "weird_science:modules",
+  "sortnum": 0,
+  "icon": "weird_science:genius_eye",
+  "pages": [
+    {
+      "text": "weird_science.tablet.page1.genius_eye",
+      "type": "patchouli:text"
+    },
+    {
+      "recipe": "weird_science:crafting/modules/genius_eye",
+      "type": "patchouli:crafting"
+    }
+  ]
+}

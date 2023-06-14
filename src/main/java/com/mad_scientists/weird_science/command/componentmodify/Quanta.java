@@ -12,7 +12,7 @@ public class Quanta {
     public static void execute(CommandContext<CommandSourceStack> arguments, Entity entity) {
         if (entity == null)
             return;
-        if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == AllItems.COMPONENT.get()) {
+        if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == AllItems.COMPONENT.get() || (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == AllItems.QUANTA_CAPSULE.get()) {
             (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().putDouble("Quanta", (DoubleArgumentType.getDouble(arguments, "quanta")));
         }
     }

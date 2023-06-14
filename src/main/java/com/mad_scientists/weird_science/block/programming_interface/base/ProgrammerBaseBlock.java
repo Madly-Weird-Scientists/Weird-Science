@@ -30,7 +30,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "unchecked"})
 public class ProgrammerBaseBlock extends BaseEntityBlock {
     public ProgrammerBaseBlock(Properties properties) {
         super(properties);

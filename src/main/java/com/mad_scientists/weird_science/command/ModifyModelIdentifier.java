@@ -1,6 +1,5 @@
 package com.mad_scientists.weird_science.command;
 
-import com.mad_scientists.weird_science.command.componentmodify.Flux;
 import com.mad_scientists.weird_science.command.componentmodify.ModelIdentifier;
 import com.mojang.brigadier.arguments.DoubleArgumentType;
 import net.minecraft.commands.Commands;
