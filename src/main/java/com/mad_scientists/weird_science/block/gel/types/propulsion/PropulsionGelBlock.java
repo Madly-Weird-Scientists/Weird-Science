@@ -84,19 +84,19 @@ public class PropulsionGelBlock extends GelBlock {
             return;
         if (vec3.x < 0.0D && !entity.isSteppingCarefully()) {
             double d0 = entity instanceof LivingEntity ? 1.1D : 0.7D;
-            entity.setDeltaMovement(dir.x * d0, dir.y, dir.z);
+            entity.setDeltaMovement(vec3.x * 1.1, vec3.y, vec3.z);
         }
         if (vec3.z < 0.0D && !entity.isSteppingCarefully()) {
             double d0 = entity instanceof LivingEntity ? 1.1D : 0.7D;
-            entity.setDeltaMovement(new Vec3(dir.x, dir.y, dir.z * d0));
+            entity.setDeltaMovement(new Vec3(dir.x, dir.y, dir.z * 1.1));
         }
         if (-vec3.x < 0.0D && !entity.isSteppingCarefully()) {
             double d0 = entity instanceof LivingEntity ? 1.1D : 0.7D;
-            entity.setDeltaMovement(dir.x * d0, dir.y, dir.z);
+            entity.setDeltaMovement(dir.x * 1.1, dir.y, dir.z);
         }
         if (-vec3.z < 0.0D && !entity.isSteppingCarefully()) {
             double d0 = entity instanceof LivingEntity ? 1.1D : 0.7D;
-            entity.setDeltaMovement(new Vec3(dir.x, dir.y, dir.z * d0));
+            entity.setDeltaMovement(new Vec3(dir.x, dir.y, dir.z * 1.1));
         }
     }
 }

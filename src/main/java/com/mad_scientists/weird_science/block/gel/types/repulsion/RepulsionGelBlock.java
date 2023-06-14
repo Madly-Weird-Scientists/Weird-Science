@@ -90,22 +90,22 @@ public class RepulsionGelBlock extends GelBlock {
         //    entity.setDeltaMovement(new Vec3(vec3.x * 1.2, vec3.y * 1.2, vec3.z * 1.2));
         //}
         if (vec3.y < 0.0D && blockstate.getValue(BlockStateProperties.DOWN)) {
-            entity.setDeltaMovement(new Vec3(vec3.x, -vec3.y * 2.5, vec3.z));
+            entity.setDeltaMovement(new Vec3(vec3.x, -vec3.y, vec3.z));
         }
         if (vec3.y > 0.0D && blockstate.getValue(BlockStateProperties.UP)) {
-            entity.setDeltaMovement(new Vec3(vec3.x, -vec3.y * 2.5, vec3.z));
+            entity.setDeltaMovement(new Vec3(vec3.x, -vec3.y, vec3.z));
         }
         if (vec3.z > 0.0D && blockstate.getValue(BlockStateProperties.SOUTH)) {
-            entity.setDeltaMovement(new Vec3(vec3.x, vec3.y, -vec3.z * 2.5));
+            entity.setDeltaMovement(new Vec3(vec3.x, vec3.y, -vec3.z));
         }
         if (vec3.z < 0.0D && blockstate.getValue(BlockStateProperties.NORTH)) {
-            entity.setDeltaMovement(new Vec3(vec3.x, vec3.y, -vec3.z * 2.5));
+            entity.setDeltaMovement(new Vec3(vec3.x, vec3.y, -vec3.z));
         }
         if (vec3.x > 0.0D && blockstate.getValue(BlockStateProperties.EAST)) {
-            entity.setDeltaMovement(new Vec3(-vec3.x * 2.5, vec3.y, vec3.z));
+            entity.setDeltaMovement(new Vec3(-vec3.x, vec3.y, vec3.z));
         }
         if (vec3.x < 0.0D && blockstate.getValue(BlockStateProperties.WEST)) {
-            entity.setDeltaMovement(new Vec3(-vec3.x * 2.5, vec3.y, vec3.z));
+            entity.setDeltaMovement(new Vec3(-vec3.x, vec3.y, vec3.z));
         }
         if (entity instanceof LivingEntity livingEntity)
             livingEntity.addEffect(new MobEffectInstance(MobEffects.JUMP, 1, 4, (false), (false)));
