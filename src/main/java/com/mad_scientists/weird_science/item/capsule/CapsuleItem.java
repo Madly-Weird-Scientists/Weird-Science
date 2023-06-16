@@ -18,9 +18,9 @@ public class CapsuleItem extends Item {
         super(properties);
     }
 
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
-        tooltip.add(Component.nullToEmpty(Lang.translateDirect("capsule.value.capacity.empty").withStyle(ChatFormatting.GRAY).getString()));
-            tooltip.add(Component.nullToEmpty(Lang.translateDirect("capsule.value.empty").withStyle(ChatFormatting.GREEN).getString()));
-    }
+    //@Override
+    //public void appendHoverText(ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+    //    tooltip.add(Component.nullToEmpty(Lang.translateDirect("capsule.value.capacity.empty").withStyle(ChatFormatting.GRAY).getString()));
+    //        tooltip.add(Component.nullToEmpty(Lang.translateDirect("capsule.value.empty").withStyle(ChatFormatting.GREEN).getString()));
+    //}
 }

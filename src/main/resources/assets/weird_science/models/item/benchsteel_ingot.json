@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "weird_science:item/repulsion_gel"
+    "layer0": "weird_science:item/benchsteel_ingot"
   }
 }

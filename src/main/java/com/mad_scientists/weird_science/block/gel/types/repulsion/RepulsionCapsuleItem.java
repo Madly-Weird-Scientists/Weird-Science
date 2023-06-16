@@ -1,5 +1,7 @@
 package com.mad_scientists.weird_science.block.gel.types.repulsion;
 
+import com.mad_scientists.weird_science.item.GelBombItem;
+import com.mad_scientists.weird_science.item.capsule.CapsuleItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -10,7 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class RepulsionCapsuleItem extends Item {
+public class RepulsionCapsuleItem extends GelBombItem {
     public RepulsionCapsuleItem(Properties properties) {
         super(properties);
     }

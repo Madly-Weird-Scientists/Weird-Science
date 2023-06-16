@@ -48,7 +48,9 @@ public class ProgrammingInterfaceBlock extends BaseEntityBlock {
     @Override
     public boolean onDestroyedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, boolean willHarvest, FluidState fluid) {
         boolean retval = super.onDestroyedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
-        world.destroyBlock(new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ()), false);
+        if (world.getBlockState(new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ())).getBlock() == AllBlocks.PROGRAMMING_BASE.get()) {
+            world.destroyBlock(new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ()), false);
+        }
         return retval;
     }
     public boolean canSurvive(BlockState state, LevelReader reader, BlockPos pos) {

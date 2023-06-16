@@ -7,7 +7,6 @@ import com.mad_scientists.weird_science.util.Lang;
 import net.minecraft.ChatFormatting;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -18,15 +17,14 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.IItemRenderProperties;
 import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
+import software.bernie.geckolib3.network.GeckoLibNetwork;
+import software.bernie.geckolib3.network.ISyncable;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import javax.annotation.Nullable;
@@ -41,9 +39,10 @@ import java.util.function.Consumer;
         modid = "weird_science",
         bus = Mod.EventBusSubscriber.Bus.FORGE
 )
-public class ComponentItem extends LensRequiringItem implements IManualModelLoading, IAnimatable {
+public class ComponentItem extends LensRequiringItem implements IAnimatable, ISyncable {
     public ComponentItem(Properties properties) {
         super(properties);
+        GeckoLibNetwork.registerSyncable(this);
     }
     @Override
     public void fillItemCategory(@NotNull CreativeModeTab group, @NotNull NonNullList<ItemStack> items) {
@@ -82,28 +81,28 @@ public class ComponentItem extends LensRequiringItem implements IManualModelLoad
             }
         }
     }
-    public static String getSecondaryValue(ItemStack stack) {
-        CompoundTag nbt = stack.getOrCreateTag();
-        return nbt.getString("Secondary");
-    }
-    public static boolean getPrimaryValue(ItemStack stack, String key) {
-        CompoundTag nbt = stack.getOrCreateTag();
-        return nbt.getString("Primary").equals(key);
-    }
-    @OnlyIn(Dist.CLIENT)
-    public void loadModels(Consumer<ModelResourceLocation> consumer) {
-        ItemStack stack = new ItemStack(this);
-        CompoundTag tag = stack.getTag();
-        String type = "component";
-        String material = "gold";
-        if (tag != null) {
-            type = tag.getString("Secondary").toLowerCase();
-            material = tag.getString("Primary").toLowerCase();
-        }
-            consumer.accept(new ModelResourceLocation("weird_science:textures/item/component/%s/material/%s#inventory".formatted(type.toLowerCase(), material.toLowerCase())));
-            consumer.accept(new ModelResourceLocation("weird_science:textures/item/component/%s/unmodified#inventory".formatted(type.toLowerCase())));
+    //public static String getSecondaryValue(ItemStack stack) {
+    //    CompoundTag nbt = stack.getOrCreateTag();
+    //    return nbt.getString("Secondary");
+    //}
+    //public static boolean getPrimaryValue(ItemStack stack) {
+    //    CompoundTag nbt = stack.getOrCreateTag();
+    //    return nbt.getString("Primary");
+    //}
+   //@OnlyIn(Dist.CLIENT)
+   //public void loadModels(Consumer<ModelResourceLocation> consumer) {
+   //    ItemStack stack = new ItemStack(this);
+   //    CompoundTag tag = stack.getTag();
+   //    String type = "component";
+   //    String material = "gold";
+   //    if (tag != null) {
+   //        type = tag.getString("Secondary").toLowerCase();
+   //        material = tag.getString("Primary").toLowerCase();
+   //    }
+   //        consumer.accept(new ModelResourceLocation("weird_science:textures/item/component/%s/material/%s#inventory".formatted(type.toLowerCase(), material.toLowerCase())));
+   //        consumer.accept(new ModelResourceLocation("weird_science:textures/item/component/%s/unmodified#inventory".formatted(type.toLowerCase())));
 
-        }
+   //    }
 
     public String getItemName(ItemStack itemStack) {
         String primary = Lang.translate("material.default.primary").string();
@@ -149,6 +148,20 @@ public class ComponentItem extends LensRequiringItem implements IManualModelLoad
         return new TextComponent(getItemName(stack));
     }
 
+    public static String getValuePrimary(ItemStack stack) {
+        CompoundTag tag = stack.getTag();
+        if (tag != null) {
+            return tag.getString("Primary").toLowerCase();
+        }
+        return "default";
+    }
+    public static String getValueSecondary(ItemStack stack) {
+        CompoundTag tag = stack.getTag();
+        if (tag != null) {
+            return tag.getString("Secondary").toLowerCase();
+        }
+        return "default";
+    }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
         CompoundTag tag = stack.getTag();
@@ -205,5 +218,10 @@ public class ComponentItem extends LensRequiringItem implements IManualModelLoad
     @Override
     public AnimationFactory getFactory() {
         return this.factory;
+    }
+
+    @Override
+    public void onAnimationSync(int id, int state) {
+
     }
 }

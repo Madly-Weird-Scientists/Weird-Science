@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "weird_science:item/propulsion_placeable"
+    "layer0": "weird_science:item/gel/capsule/propulsion"
   }
 }

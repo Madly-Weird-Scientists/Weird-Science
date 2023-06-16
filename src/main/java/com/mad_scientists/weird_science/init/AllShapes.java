@@ -17,8 +17,12 @@ public class AllShapes {
 
             PROGRAMMING_INTERFACE = shape(1, 0, 1, 15, 5, 15).add(2, 5, 2, 14, 16, 14).build(),
             PROGRAMMER_BASE = shape(0, 0, 0, 16, 4, 16).add(1, 4, 1, 15, 12, 15).add(0, 12, 0, 16, 16, 16).build(),
+            TINKERS_TABLE = shape(0, 0, 0, 16, 5, 16).add(1, 5, 1, 15, 11, 15).add(0, 11, 0, 16, 16, 16).build(),
+            LAVA_LAMP = shape(5, 0, 5, 11, 9, 11).add(6, 9, 6, 10, 14, 10).add(7, 14, 7, 9, 16, 9).build()
 
-            TINKERS_TABLE = shape(0, 0, 0, 16, 5, 16).add(1, 5, 1, 15, 11, 15).add(0, 11, 0, 16, 16, 16).build()
+
+
+
             ;
 
 

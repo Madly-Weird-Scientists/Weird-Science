@@ -32,8 +32,9 @@ public class JsonModelWriter {
         JsonObject textures = new JsonObject();
 
         json.addProperty("parent", "item/generated");
-        textures.addProperty("layer0", "weird_science:item/component/" + type + "/material/" + material);
-        textures.addProperty("layer1", "weird_science:item/component/" + type + "/unmodified");
+        textures.addProperty("layer0", "weird_science:item/component/" + type + "/unmodified");
+        textures.addProperty("layer1", "weird_science:item/component/" + type + "/material/" + material);
+
 
         json.add("textures", textures);
 

@@ -7,8 +7,8 @@
 
 
   "item.weird_science.tinkerers_lens": "Genius Eye",
-
-  "curios.identifier.module_mind": "Mind Modifier",
+  "weird_science.bracelet.charges": "Uses Left:",
+  "curios.identifier.mind": "Module",
 
   "Section1": "Capsule Stuff (Most of this is just tooltips lol)",
   "item.weird_science.capsule": "Capsule",
@@ -125,7 +125,7 @@
   "commands.component.failed.incompatible": "Modifiable component not found",
 
 
-  "Guidebook": "Scientist's Tablet (AKA the Guidebook for Weird Science)",
+  "Section3": "Scientist's Tablet (AKA the Guidebook for Weird Science)",
 
   "item.weird_science.scientists_tablet": "Scientist's Tablet",
   "weird_science.tablet.landing_text": "§6§lWelcome to the Scientist's §6§lTablet!§r This acts as documentation guidebook for Weird Science.",
@@ -152,6 +152,24 @@
   "weird_science.tablet.gadgets_and_modules_desc": "Gadgets and Modules are the main components of Weird Science and act as the backbone of a scientists future advancements.",
   "weird_science.tablet.modules": "Modules",
   "weird_science.tablet.modules_desc": "Modules are modifiers for the Player. They can be equipped in the Curios Inventory, and can be used to enhance the player's abilities.",
-  "weird_science.tablet.page.tinkerers_lens": "Tinkerer's Lens",
-  "weird_science.tablet.page1.tinkerers_lens": "The Tinkerer's Lens is a tool that, when equipped in the Curios Inventory, allows the player to see the information of a Component."
+  "weird_science.tablet.page.genius_eye": "Genius Eye",
+  "weird_science.tablet.page1.genius_eye": "The Genius Eye is a tool that, when equipped in the Curios Inventory, allows the player to see the information of a Component.",
+
+  "Section4": "Decorative Blocks & misc items",
+
+  "block.weird_science.energized_aluminum_panel": "Energized Aluminum Panel",
+  "block.weird_science.benchsteel_panel": "Benchsteel Panel",
+  "item.weird_science.energized_aluminum_ingot": "Energized Aluminum Ingot",
+  "item.weird_science.benchsteel_ingot": "Benchsteel Ingot",
+  "item.weird_science.energized_aluminum_nugget": "Energized Aluminum Nugget",
+  "item.weird_science.benchsteel_nugget": "Benchsteel Nugget",
+
+  "Section5": "Gels",
+  "block.weird_science.repulsion_gel": "Repulsion Gel Capsule",
+  "item.weird_science.repulsion_gel_bomb": "Repulsion Gel Bomb",
+  "block.weird_science.propulsion_gel": "Propulsion Gel Capsule",
+  "item.weird_science.propulsion_gel_bomb": "Propulsion Gel Bomb",
+  "block.weird_science.acidic_gel": "Acidic Gel Capsule",
+  "item.weird_science.acidic_gel_bomb": "Acidic Gel Bomb",
+  "block.weird_science.full_acidic_gel": "Block of Acidic Gel"
 }

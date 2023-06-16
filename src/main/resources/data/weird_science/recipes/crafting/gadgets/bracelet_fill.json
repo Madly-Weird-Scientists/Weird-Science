@@ -1,0 +1,14 @@
+{
+  "type": "weird_science:bracelet_potion",
+  "ingredients": [
+    {
+      "item": "weird_science:bracelet"
+    },
+    {
+      "item": "minecraft:potion"
+    }
+  ],
+  "result": {
+    "item": "weird_science:bracelet"
+  }
+}

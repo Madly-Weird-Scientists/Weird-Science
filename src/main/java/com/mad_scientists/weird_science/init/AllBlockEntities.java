@@ -1,6 +1,7 @@
 package com.mad_scientists.weird_science.init;
 
 import com.mad_scientists.weird_science.WeirdScience;
+import com.mad_scientists.weird_science.block.modification_station.ModificationBlockEntity;
 import com.mad_scientists.weird_science.block.programming_interface.base.ProgrammingBaseBlockEntity;
 import com.mad_scientists.weird_science.block.tinkers_table.TinkersTableBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -22,6 +23,11 @@ public class AllBlockEntities {
             BLOCK_ENTITIES.register("programming_base", () ->
                     BlockEntityType.Builder.of(ProgrammingBaseBlockEntity::new,
                             AllBlocks.PROGRAMMING_BASE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<ModificationBlockEntity>> MODIFICATION =
+            BLOCK_ENTITIES.register("programming_base_2", () ->
+                    BlockEntityType.Builder.of(ModificationBlockEntity::new,
+                            AllBlocks.MODIFICATION_STATION.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

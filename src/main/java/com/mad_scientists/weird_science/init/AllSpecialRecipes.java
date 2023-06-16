@@ -21,7 +21,6 @@ public enum AllSpecialRecipes implements IRecipeTypeInfo {
     FLUX_CAPSULING(() -> new SimpleRecipeSerializer<>(FluxCapsuleRecipe::new), () -> RecipeType.CRAFTING, false),
     MODIFY_FLUX_CAPSULING(() -> new SimpleRecipeSerializer<>(FluxCapsuleModificationRecipe::new), () -> RecipeType.CRAFTING, false)
 
-
     ;
 
     private final ResourceLocation id;

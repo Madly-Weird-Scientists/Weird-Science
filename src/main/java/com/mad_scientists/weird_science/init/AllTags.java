@@ -5,6 +5,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 
 public class AllTags {
     public static void init() {
@@ -29,6 +30,16 @@ public class AllTags {
         /** Makes a tag in the forge domain */
         public static TagKey<Item> forgeTag(String name) {
             return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("forge", name));
+        }
+    }
+
+    public static class Blocks {
+        private static void init() {}
+
+        public static final TagKey<Block> ACIDIC_IMMUNE = tag("acidic_immune");
+
+        private static TagKey<Block> tag(String name) {
+            return TagKey.create(Registry.BLOCK_REGISTRY, WeirdScience.asResource(name));
         }
     }
 }

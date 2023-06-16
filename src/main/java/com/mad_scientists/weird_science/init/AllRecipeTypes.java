@@ -12,10 +12,8 @@ import net.minecraftforge.registries.RegistryObject;
 public class AllRecipeTypes {
     public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS =
             DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, WeirdScience.ID);
-
     public static final RegistryObject<RecipeSerializer<TinkeringRecipe>> TINKERING =
             SERIALIZERS.register("tinkering", () -> TinkeringRecipe.Serializer.INSTANCE);
-
     public static final RegistryObject<RecipeSerializer<Modification>> MODIFICATION =
             SERIALIZERS.register("modification", () -> Modification.Serializer.INSTANCE);
     public static void register(IEventBus eventBus) {

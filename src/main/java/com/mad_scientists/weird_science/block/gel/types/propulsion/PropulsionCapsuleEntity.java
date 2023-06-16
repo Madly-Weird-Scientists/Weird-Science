@@ -2,6 +2,7 @@ package com.mad_scientists.weird_science.block.gel.types.propulsion;
 
 import com.mad_scientists.weird_science.init.AllBlocks;
 import com.mad_scientists.weird_science.init.AllEntities;
+import com.mad_scientists.weird_science.init.AllItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
@@ -24,10 +25,14 @@ public class PropulsionCapsuleEntity extends AbstractArrow implements ItemSuppli
         this.pickup = Pickup.DISALLOWED;
     }
 
+    public PropulsionCapsuleEntity(Level level, double x, double y, double z) {
+        super(AllEntities.PROPULSION_CAPSULE_ENTITY.get(), x, y, z, level);
+    }
+
 
     @Override
     protected ItemStack getPickupItem() {
-        return new ItemStack(AllBlocks.PROPULSION_GEL.get().asItem());
+        return new ItemStack(AllItems.GEL_BOMB_PROPULSION.get());
     }
 
     @Override

@@ -40,6 +40,7 @@ public class ClientListener {
     public static void setUpClient(EntityRenderersEvent event) {
         EntityRenderers.register(AllEntities.REPULSION_CAPSULE_ENTITY.get(), ThrownItemRenderer::new);
         EntityRenderers.register(AllEntities.PROPULSION_CAPSULE_ENTITY.get(), ThrownItemRenderer::new);
+        EntityRenderers.register(AllEntities.ACIDIC_BOMB_ENTITY.get(), ThrownItemRenderer::new);
 
     }
     @SubscribeEvent
@@ -96,5 +97,8 @@ public class ClientListener {
         //Block / Item Render Types
         ItemBlockRenderTypes.setRenderLayer(AllBlocks.PROGRAMMING_INTERFACE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(AllBlocks.REPULSION_GEL.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(AllBlocks.PROPULSION_GEL.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(AllBlocks.ACIDIC_GEL.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(AllBlocks.FULL_ACIDIC_GEL.get(), RenderType.translucent());
     }
 }

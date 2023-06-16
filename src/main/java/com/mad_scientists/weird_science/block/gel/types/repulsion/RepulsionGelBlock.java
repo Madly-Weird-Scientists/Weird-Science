@@ -37,43 +37,6 @@ public class RepulsionGelBlock extends GelBlock {
     public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
         return !context.getItemInHand().is(AllBlocks.REPULSION_GEL.get().asItem()) || super.canBeReplaced(state, context);
     }
-    //public void updateEntityAfterFallOn(BlockGetter getter, Entity entity) {
-    //    if (entity.isSuppressingBounce()) {
-    //        super.updateEntityAfterFallOn(getter, entity);
-    //    } else {
-    //        this.bounceUp(entity);
-    //    }
-//
-    //}
-//
-    //private void bounceUp(Entity entity) {
-    //    Vec3 vec3 = entity.getDeltaMovement();
-    //    if (vec3.y < 0.0D) {
-    //        double d0 = entity instanceof LivingEntity ? 1.0D : 0.4D;
-    //        entity.setDeltaMovement(vec3.x, -vec3.y * d0, vec3.z);
-    //    }
-//
-    //}
-    //private void travelBounceUp(Entity entity) {
-    //    Vec3 vec3 = entity.getDeltaMovement();
-    //    if (vec3.y >= 0.0D) {
-    //        double d0 = entity instanceof LivingEntity ? 1.0D : 0.4D;
-    //        entity.setDeltaMovement(vec3.x * d0, vec3.y, vec3.z * d0);
-    //    }
-//
-    //}
-    //public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
-    //    double d0 = Math.abs(entity.getDeltaMovement().y);
-    //    if (d0 < 0.1D && !entity.isSteppingCarefully()) {
-    //        double d1 = 0.4D + d0 * 0.2D;
-    //        this.travelBounceUp(entity);
-    //        entity.setDeltaMovement(entity.getDeltaMovement().multiply(d1, 2.0D, d1));
-    //    }
-    //    double d1 = 0.4D + d0 * 0.2D;
-    //    entity.setDeltaMovement(entity.getDeltaMovement().multiply(d1, 2.0D, d1));
-    //    super.stepOn(level, pos, state, entity);
-    //}
-
     public static BlockState isStateDown (BlockGetter getter, BlockPos blockPos) {
         BlockPos blockpos = blockPos.below();
         BlockState blockstate = getter.getBlockState(blockpos);
@@ -89,23 +52,23 @@ public class RepulsionGelBlock extends GelBlock {
         //if (!entity.isSteppingCarefully()) {
         //    entity.setDeltaMovement(new Vec3(vec3.x * 1.2, vec3.y * 1.2, vec3.z * 1.2));
         //}
-        if (vec3.y < 0.0D && blockstate.getValue(BlockStateProperties.DOWN)) {
-            entity.setDeltaMovement(new Vec3(vec3.x, -vec3.y, vec3.z));
+        if (vec3.y < 0.0D && blockstate.getValue(BlockStateProperties.DOWN) && !entity.isSteppingCarefully()) {
+            entity.setDeltaMovement(new Vec3(vec3.x, -vec3.y + 1.1, vec3.z));
         }
-        if (vec3.y > 0.0D && blockstate.getValue(BlockStateProperties.UP)) {
-            entity.setDeltaMovement(new Vec3(vec3.x, -vec3.y, vec3.z));
+        if (vec3.y > 0.0D && blockstate.getValue(BlockStateProperties.UP) && !entity.isSteppingCarefully()) {
+            entity.setDeltaMovement(new Vec3(vec3.x, -vec3.y + 1.1, vec3.z));
         }
-        if (vec3.z > 0.0D && blockstate.getValue(BlockStateProperties.SOUTH)) {
-            entity.setDeltaMovement(new Vec3(vec3.x, vec3.y, -vec3.z));
+        if (vec3.z > 0.0D && blockstate.getValue(BlockStateProperties.SOUTH) && !entity.isSteppingCarefully()) {
+            entity.setDeltaMovement(new Vec3(vec3.x, vec3.y, -vec3.z - 1.1));
         }
-        if (vec3.z < 0.0D && blockstate.getValue(BlockStateProperties.NORTH)) {
-            entity.setDeltaMovement(new Vec3(vec3.x, vec3.y, -vec3.z));
+        if (vec3.z < 0.0D && blockstate.getValue(BlockStateProperties.NORTH) && !entity.isSteppingCarefully()) {
+            entity.setDeltaMovement(new Vec3(vec3.x, vec3.y, -vec3.z + 1.1));
         }
-        if (vec3.x > 0.0D && blockstate.getValue(BlockStateProperties.EAST)) {
-            entity.setDeltaMovement(new Vec3(-vec3.x, vec3.y, vec3.z));
+        if (vec3.x > 0.0D && blockstate.getValue(BlockStateProperties.EAST) && !entity.isSteppingCarefully()) {
+            entity.setDeltaMovement(new Vec3(-vec3.x - 1.1, vec3.y, vec3.z));
         }
-        if (vec3.x < 0.0D && blockstate.getValue(BlockStateProperties.WEST)) {
-            entity.setDeltaMovement(new Vec3(-vec3.x, vec3.y, vec3.z));
+        if (vec3.x < 0.0D && blockstate.getValue(BlockStateProperties.WEST) && !entity.isSteppingCarefully()) {
+            entity.setDeltaMovement(new Vec3(-vec3.x + 1.1, vec3.y, vec3.z));
         }
         if (entity instanceof LivingEntity livingEntity)
             livingEntity.addEffect(new MobEffectInstance(MobEffects.JUMP, 1, 4, (false), (false)));
