@@ -1,0 +1,12 @@
+{
+  "type": "weird_science:modification",
+  "base": {
+    "item": "weird_science:component"
+  },
+  "addition": {
+    "tag": "forge:ingots/netherite"
+  },
+  "flux": 2,
+  "warp": 2,
+  "quanta": 2
+}

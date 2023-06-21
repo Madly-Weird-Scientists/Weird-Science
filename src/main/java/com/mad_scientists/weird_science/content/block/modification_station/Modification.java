@@ -42,6 +42,15 @@ public class Modification implements Recipe<SimpleContainer> {
                 && this.addition.test(pContainer.getItem(1));
     }
 
+    public float getFlux() {
+        return flux;
+    }
+    public float getWarp() {
+        return warp;
+    }
+    public float getQuanta() {
+        return quanta;
+    }
     @Override
     public ItemStack assemble(SimpleContainer pContainer) {
         ItemStack itemstack = this.base.copy();

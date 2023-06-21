@@ -1,0 +1,12 @@
+{
+  "type": "weird_science:modification",
+  "base": {
+    "item": "weird_science:component"
+  },
+  "addition": {
+    "tag": "forge:gems/emerald"
+  },
+  "flux": 4,
+  "warp": 0,
+  "quanta": 0
+}

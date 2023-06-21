@@ -174,5 +174,11 @@
   "item.weird_science.propulsion_gel_bomb": "Propulsion Gel Bomb",
   "block.weird_science.acidic_gel": "Acidic Gel",
   "item.weird_science.acidic_gel_bomb": "Acidic Gel Bomb",
-  "block.weird_science.full_acidic_gel": "Block of Acidic Gel"
+  "block.weird_science.full_acidic_gel": "Block of Acidic Gel",
+
+    "Section6": "Integration & JEI",
+    "weird_science.jei.category.modification": "Modification",
+    "weird_science.jei.category.modification.flux": "+ %s Flux",
+    "weird_science.jei.category.modification.quanta": "+ %s Quanta",
+    "weird_science.jei.category.modification.warp": "+ %s Warp"
 }

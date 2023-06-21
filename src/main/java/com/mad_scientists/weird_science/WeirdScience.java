@@ -2,6 +2,7 @@ package com.mad_scientists.weird_science;
 
 import com.mad_scientists.weird_science.content.client.ClientListener;
 import com.mad_scientists.weird_science.content.config.CommonConfig;
+import com.mad_scientists.weird_science.foundation.CommonSetup;
 import com.mad_scientists.weird_science.init.*;
 import com.mad_scientists.weird_science.foundation.util.ModItemGroup;
 import com.mojang.logging.LogUtils;
@@ -53,6 +54,8 @@ public class WeirdScience
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
+        eventBus.addListener(CommonSetup::init);
 
         AllBlockEntities.register(eventBus);
         AllBlocks.register(eventBus);
