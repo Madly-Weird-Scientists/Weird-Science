@@ -1,21 +1,21 @@
 package com.mad_scientists.weird_science.init;
 
 import com.mad_scientists.weird_science.WeirdScience;
-import com.mad_scientists.weird_science.block.gel.types.acidic.AcidicGelBlock;
-import com.mad_scientists.weird_science.block.gel.types.acidic.FullAcidicGelBlock;
-import com.mad_scientists.weird_science.block.gel.types.propulsion.PropulsionGelBlock;
-import com.mad_scientists.weird_science.block.gel.types.repulsion.RepulsionGelBlock;
-import com.mad_scientists.weird_science.block.modification_station.ModificationBlock;
-import com.mad_scientists.weird_science.block.programming_interface.ProgrammingInterfaceBlock;
-import com.mad_scientists.weird_science.block.programming_interface.base.ProgrammerBaseBlock;
-import com.mad_scientists.weird_science.block.tinkers_table.TinkersTableBlock;
+import com.mad_scientists.weird_science.content.block.AluminumBlock;
+import com.mad_scientists.weird_science.content.block.gel.types.acidic.AcidicGelBlock;
+import com.mad_scientists.weird_science.content.block.gel.types.acidic.FullAcidicGelBlock;
+import com.mad_scientists.weird_science.content.block.gel.types.propulsion.PropulsionGelBlock;
+import com.mad_scientists.weird_science.content.block.gel.types.repulsion.RepulsionGelBlock;
+import com.mad_scientists.weird_science.content.block.modification_station.ModificationBlock;
+import com.mad_scientists.weird_science.content.block.programming_interface.ProgrammingInterfaceBlock;
+import com.mad_scientists.weird_science.content.block.programming_interface.base.ProgrammerBaseBlock;
+import com.mad_scientists.weird_science.content.block.tinkers_table.TinkersTableBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -47,15 +47,18 @@ public class AllBlocks {
     public static final RegistryObject<AcidicGelBlock> ACIDIC_GEL = registerBlock("acidic_gel",
             () -> new AcidicGelBlock(BlockBehaviour.Properties.of(Material.TOP_SNOW).friction(0.95F).strength(0.2F).noCollission().sound(SoundType.SLIME_BLOCK)), WeirdScience.TAB);
     public static final RegistryObject<FullAcidicGelBlock> FULL_ACIDIC_GEL = registerBlock("full_acidic_gel",
-            () -> new FullAcidicGelBlock(BlockBehaviour.Properties.of(Material.TOP_SNOW).friction(0.95F).strength(0.2F).sound(SoundType.SLIME_BLOCK)), WeirdScience.TAB);
+            () -> new FullAcidicGelBlock(BlockBehaviour.Properties.of(Material.TOP_SNOW).noOcclusion().friction(0.95F).strength(0.2F).sound(SoundType.SLIME_BLOCK)), WeirdScience.TAB);
 
     /** Decoration Blocks! **/
     public static final RegistryObject<Block> ENERGIZED_ALUMINUM_PANEL = registerBlock("energized_aluminum_panel",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.NETHERITE_BLOCK)), WeirdScience.TAB);
+    public static final RegistryObject<Block> BENCHSTEEL_PANEL = registerBlock("benchsteel_panel",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.NETHERITE_BLOCK)), WeirdScience.TAB);
+
     public static final RegistryObject<Block> ENERGIZED_ALUMINUM_BLOCK = registerBlock("energized_aluminum_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.NETHERITE_BLOCK)), WeirdScience.TAB);
-    public static final RegistryObject<Block> DARKENED_ALUMINUM_PANEL = registerBlock("benchsteel_panel",
-            () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.NETHERITE_BLOCK)), WeirdScience.TAB);
+    public static final RegistryObject<AluminumBlock> ALUMINUM_BLOCK = registerBlock("aluminum_block",
+            () -> new AluminumBlock(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.NETHERITE_BLOCK)), WeirdScience.TAB);
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);

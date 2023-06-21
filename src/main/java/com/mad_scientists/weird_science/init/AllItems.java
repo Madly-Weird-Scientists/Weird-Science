@@ -1,17 +1,17 @@
 package com.mad_scientists.weird_science.init;
 
 import com.mad_scientists.weird_science.WeirdScience;
-import com.mad_scientists.weird_science.block.gel.types.acidic.AcidicBombItem;
-import com.mad_scientists.weird_science.block.gel.types.acidic.AcidicGelBlock;
-import com.mad_scientists.weird_science.block.gel.types.propulsion.PropulsionCapsuleItem;
-import com.mad_scientists.weird_science.block.gel.types.repulsion.RepulsionCapsuleItem;
-import com.mad_scientists.weird_science.block.programming_interface.ProgrammingInterfaceBlockItem;
-import com.mad_scientists.weird_science.item.ScientistsTablet;
-import com.mad_scientists.weird_science.item.capsule.CapsuleItem;
-import com.mad_scientists.weird_science.item.capsule.FluxCapsuleItem;
-import com.mad_scientists.weird_science.item.capsule.QuantaCapsuleItem;
-import com.mad_scientists.weird_science.item.capsule.WarpCapsuleItem;
-import com.mad_scientists.weird_science.item.component.ComponentItem;
+import com.mad_scientists.weird_science.content.block.gel.types.acidic.AcidicBombItem;
+import com.mad_scientists.weird_science.content.block.gel.types.propulsion.PropulsionCapsuleItem;
+import com.mad_scientists.weird_science.content.block.gel.types.repulsion.RepulsionCapsuleItem;
+import com.mad_scientists.weird_science.content.block.programming_interface.ProgrammingInterfaceBlockItem;
+import com.mad_scientists.weird_science.content.item.gadget.ScientistsTablet;
+import com.mad_scientists.weird_science.content.item.gel.capsule.CapsuleItem;
+import com.mad_scientists.weird_science.content.item.gel.capsule.FluxCapsuleItem;
+import com.mad_scientists.weird_science.content.item.gel.capsule.QuantaCapsuleItem;
+import com.mad_scientists.weird_science.content.item.gel.capsule.WarpCapsuleItem;
+import com.mad_scientists.weird_science.content.item.component.ComponentItem;
+import com.mad_scientists.weird_science.content.item.gel.blob_launcher.GelBlobLauncherItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -34,6 +34,10 @@ public class AllItems {
                     new Item.Properties().tab(WeirdScience.TAB)));
     public static final RegistryObject<ProgrammingInterfaceBlockItem> PROGRAMMING_INTERFACE = ITEMS.register("programming_interface",
             () -> new ProgrammingInterfaceBlockItem(AllBlocks.PROGRAMMING_BASE.get(),
+                    new Item.Properties().tab(WeirdScience.TAB)));
+
+    public static final RegistryObject<BlockItem> MODIFICATION_STATION = ITEMS.register("modification_station",
+            () -> new BlockItem(AllBlocks.MODIFICATION_STATION.get(),
                     new Item.Properties().tab(WeirdScience.TAB)));
 
 
@@ -60,7 +64,9 @@ public class AllItems {
     public static final RegistryObject<Item> DARKENED_ALUMINUM = registerItem("benchsteel_ingot");
 
 
-    /** Gel Bombs **/
+    /** Gel Stuff **/
+    public static final RegistryObject<GelBlobLauncherItem> GEL_BLOB_LAUNCHER = ITEMS.register("gel_blob_launcher",
+            () -> new GelBlobLauncherItem(new Item.Properties()));
     public static final RegistryObject<RepulsionCapsuleItem> GEL_BOMB_REPULSION = ITEMS.register("repulsion_gel_bomb",
             () -> new RepulsionCapsuleItem(new Item.Properties().tab(WeirdScience.TAB)));
     public static final RegistryObject<PropulsionCapsuleItem> GEL_BOMB_PROPULSION = ITEMS.register("propulsion_gel_bomb",

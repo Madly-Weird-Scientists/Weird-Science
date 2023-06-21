@@ -165,11 +165,14 @@
   "item.weird_science.benchsteel_nugget": "Benchsteel Nugget",
 
   "Section5": "Gels",
-  "block.weird_science.repulsion_gel": "Repulsion Gel Capsule",
+  "weird_science.gel_launcher.tooltip.containsGel": "Contains: %s",
+  "weird_science.gel_launcher.tooltip.loadsLeft": "Loads Left: %s",
+  "weird_science.empty_gel_launcher": "Empty",
+  "block.weird_science.repulsion_gel": "Repulsion Gel",
   "item.weird_science.repulsion_gel_bomb": "Repulsion Gel Bomb",
-  "block.weird_science.propulsion_gel": "Propulsion Gel Capsule",
+  "block.weird_science.propulsion_gel": "Propulsion Gel",
   "item.weird_science.propulsion_gel_bomb": "Propulsion Gel Bomb",
-  "block.weird_science.acidic_gel": "Acidic Gel Capsule",
+  "block.weird_science.acidic_gel": "Acidic Gel",
   "item.weird_science.acidic_gel_bomb": "Acidic Gel Bomb",
   "block.weird_science.full_acidic_gel": "Block of Acidic Gel"
 }

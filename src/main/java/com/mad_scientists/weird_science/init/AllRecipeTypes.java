@@ -1,8 +1,8 @@
 package com.mad_scientists.weird_science.init;
 
 import com.mad_scientists.weird_science.WeirdScience;
-import com.mad_scientists.weird_science.block.modification_station.Modification;
-import com.mad_scientists.weird_science.block.tinkers_table.TinkeringRecipe;
+import com.mad_scientists.weird_science.content.block.modification_station.Modification;
+import com.mad_scientists.weird_science.content.block.tinkers_table.TinkeringRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

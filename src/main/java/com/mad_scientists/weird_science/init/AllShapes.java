@@ -1,6 +1,6 @@
 package com.mad_scientists.weird_science.init;
 
-import com.mad_scientists.weird_science.util.VoxelShaper;
+import com.mad_scientists.weird_science.foundation.util.VoxelShaper;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.shapes.BooleanOp;

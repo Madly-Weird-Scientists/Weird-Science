@@ -1,10 +1,10 @@
 package com.mad_scientists.weird_science.init;
 
 import com.mad_scientists.weird_science.WeirdScience;
-import com.mad_scientists.weird_science.item.capsule.recipes.FluxCapsuleModificationRecipe;
-import com.mad_scientists.weird_science.item.capsule.recipes.FluxCapsuleRecipe;
-import com.mad_scientists.weird_science.util.IRecipeTypeInfo;
-import com.mad_scientists.weird_science.util.Lang;
+import com.mad_scientists.weird_science.content.item.gel.capsule.recipes.FluxCapsuleModificationRecipe;
+import com.mad_scientists.weird_science.content.item.gel.capsule.recipes.FluxCapsuleRecipe;
+import com.mad_scientists.weird_science.foundation.util.IRecipeTypeInfo;
+import com.mad_scientists.weird_science.foundation.util.Lang;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.*;

@@ -37,6 +37,7 @@ public class AllTags {
         private static void init() {}
 
         public static final TagKey<Block> ACIDIC_IMMUNE = tag("acidic_immune");
+        public static final TagKey<Block> GEL_REMOVABLE = tag("gel_removable");
 
         private static TagKey<Block> tag(String name) {
             return TagKey.create(Registry.BLOCK_REGISTRY, WeirdScience.asResource(name));

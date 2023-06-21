@@ -1,11 +1,10 @@
 package com.mad_scientists.weird_science;
 
-import com.mad_scientists.weird_science.client.ClientListener;
+import com.mad_scientists.weird_science.content.client.ClientListener;
+import com.mad_scientists.weird_science.content.config.CommonConfig;
 import com.mad_scientists.weird_science.init.*;
-import com.mad_scientists.weird_science.util.DispenserBehaviours;
-import com.mad_scientists.weird_science.util.ModItemGroup;
+import com.mad_scientists.weird_science.foundation.util.ModItemGroup;
 import com.mojang.logging.LogUtils;
-import net.minecraft.core.BlockSource;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.Block;
@@ -16,6 +15,7 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
@@ -64,6 +64,7 @@ public class WeirdScience
         AllEntities.register(eventBus);
 
         GeckoLib.initialize();
+        ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.COMMON, CommonConfig.SPEC, "weird_science-common.toml");
 
     }
     private void setup(final FMLCommonSetupEvent event)
