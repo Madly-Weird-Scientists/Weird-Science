@@ -22,7 +22,7 @@ public class TinkersTableScreen extends AbstractContainerScreen<TinkersTableMenu
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
-        int x = (width - 177) / 2;
+        int x = (width - 176) / 2;
         int y = (height - 192) / 2;
 
         this.blit(pPoseStack, x, y, 0, 0, 177, 192);

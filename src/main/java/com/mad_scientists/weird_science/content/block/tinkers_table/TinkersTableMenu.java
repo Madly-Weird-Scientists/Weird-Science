@@ -24,7 +24,7 @@ public class TinkersTableMenu extends AbstractContainerMenu {
 
     public TinkersTableMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(AllMenuTypes.TINKERS_TABLE.get(), pContainerId);
-        checkContainerSize(inv, 5);
+        checkContainerSize(inv, 3);
         blockEntity = ((TinkersTableBlockEntity) entity);
         this.level = inv.player.level;
         this.data = data;
@@ -33,11 +33,9 @@ public class TinkersTableMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 56, 24));
-            this.addSlot(new SlotItemHandler(handler, 1, 56, 57));
-            this.addSlot(new SlotItemHandler(handler, 2, 104, 24));
-            this.addSlot(new SlotItemHandler(handler, 3, 104, 57));
-            this.addSlot(new ModResultSlot(handler, 4, 80, 40));
+            this.addSlot(new SlotItemHandler(handler, 0, 24, 29));
+            this.addSlot(new SlotItemHandler(handler, 1, 136, 29));
+            this.addSlot(new ModResultSlot(handler, 2, 80, 61));
         });
 
         addDataSlots(data);
@@ -71,7 +69,7 @@ public class TinkersTableMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 5;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 3;  // must be the number of slots you have!
 
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {

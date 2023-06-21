@@ -1,10 +1,8 @@
 package com.mad_scientists.weird_science.content.block.modification_station;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.mad_scientists.weird_science.WeirdScience;
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -13,7 +11,6 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.SmithingTableBlock;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -50,6 +47,9 @@ public class Modification implements Recipe<SimpleContainer> {
     }
     public float getQuanta() {
         return quanta;
+    }
+    public Ingredient getAddition() {
+        return this.addition;
     }
     @Override
     public ItemStack assemble(SimpleContainer pContainer) {

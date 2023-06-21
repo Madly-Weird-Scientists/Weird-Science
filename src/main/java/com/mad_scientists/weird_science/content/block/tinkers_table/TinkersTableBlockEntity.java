@@ -37,7 +37,7 @@ import java.util.Optional;
 
 @SuppressWarnings({"deprecation", "rawtypes", "unchecked"})
 public class TinkersTableBlockEntity extends BlockEntity implements IAnimatable, MenuProvider {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(5) {
+    private final ItemStackHandler itemHandler = new ItemStackHandler(3) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
@@ -146,11 +146,11 @@ public class TinkersTableBlockEntity extends BlockEntity implements IAnimatable,
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
-        return inventory.getItem(4).getItem() == output.getItem() || inventory.getItem(4).isEmpty();
+        return inventory.getItem(2).getItem() == output.getItem() || inventory.getItem(4).isEmpty();
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
-        return inventory.getItem(4).getMaxStackSize() > inventory.getItem(4).getCount();
+        return inventory.getItem(2).getMaxStackSize() > inventory.getItem(4).getCount();
     }
     private static void craftItem(TinkersTableBlockEntity entity) {
         Level level = entity.level;
@@ -165,11 +165,9 @@ public class TinkersTableBlockEntity extends BlockEntity implements IAnimatable,
         if(match.isPresent()) {
             entity.itemHandler.extractItem(0,1, false);
             entity.itemHandler.extractItem(1,1, false);
-            entity.itemHandler.extractItem(2,1, false);
-            entity.itemHandler.extractItem(3,1, false);
 
-            entity.itemHandler.setStackInSlot(4, new ItemStack(match.get().getResultItem().getItem(),
-                    entity.itemHandler.getStackInSlot(4).getCount() + 1));
+            entity.itemHandler.setStackInSlot(2, new ItemStack(match.get().getResultItem().getItem(),
+                    entity.itemHandler.getStackInSlot(2).getCount() + 1));
 
             entity.resetProgress();
         }

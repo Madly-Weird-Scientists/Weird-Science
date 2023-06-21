@@ -24,16 +24,15 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
+import java.util.Optional;
 
 @SuppressWarnings("removal")
 @MethodsReturnNonnullByDefault
 public class ModificationCategory implements IRecipeCategory<Modification> {
     public final static ResourceLocation UID = new ResourceLocation(WeirdScience.ID, "modification");
-    public final static ResourceLocation TEXTURE =
-            new ResourceLocation(WeirdScience.ID, "textures/gui/jei/modification.png");
-
     private final IDrawable background;
     private final IDrawable icon;
+    private final String additionSlotName = "addition";
 
     public ModificationCategory(IGuiHelper helper) {
         ResourceLocation backgroundImage = new ResourceLocation(WeirdScience.ID, "textures/gui/jei/modification.png");
@@ -71,10 +70,16 @@ public class ModificationCategory implements IRecipeCategory<Modification> {
 
     @Override
     public void setRecipe(@Nonnull IRecipeLayoutBuilder builder, @Nonnull Modification recipe, @Nonnull IFocusGroup focusGroup) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 60, 7).addIngredients(recipe.getIngredients().get(1));
+        builder.addSlot(RecipeIngredientRole.INPUT, 60, 7).addIngredients(recipe.getAddition()).setSlotName(additionSlotName);
     }
     @Override
     public void draw(Modification recipe, @NotNull IRecipeSlotsView recipeSlotsView, @NotNull PoseStack poseStack, double mouseX, double mouseY) {
+        Optional<ItemStack> additionStack = recipeSlotsView.findSlotByName("addition")
+                .flatMap(slot1 -> slot1.getDisplayedIngredient(VanillaTypes.ITEM));
+        if (additionStack.isEmpty()) {
+            return;
+        }
+
         float flux = recipe.getFlux();
         int fluxAddition = (int) (flux);
         String fluxTxt = Lang.translate("jei.category.modification.flux", fluxAddition).string();
