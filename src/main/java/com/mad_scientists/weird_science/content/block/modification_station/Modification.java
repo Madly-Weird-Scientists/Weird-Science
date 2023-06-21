@@ -22,42 +22,44 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 public class Modification implements Recipe<SimpleContainer> {
     private final ResourceLocation id;
-    private final ItemStack output;
-    private final Ingredient base;
+    private final ItemStack base;
     private final Ingredient addition;
-    final Integer flux;
-    final Integer warp;
-    final Integer quanta;
-    public Modification(ResourceLocation id, ItemStack output,
-                        Ingredient base, Ingredient addition, Integer flux, Integer warp, Integer quanta) {
+    final int flux;
+    final int warp;
+    final int quanta;
+
+    public Modification(ResourceLocation id, ItemStack base, Ingredient addition, int flux, int warp, int quanta) {
         this.id = id;
-        this.output = output;
-        this.base = base;
-        this.addition = addition;
-        this.flux = flux;
-        this.warp = warp;
-        this.quanta = quanta;
+        this.base = base;           // item to modify
+        this.addition = addition;   // ingredient key
+        this.flux = flux;           // added flux
+        this.warp = warp;           // added warp
+        this.quanta = quanta;       // added quanta
     }
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
-        return this.base.test(pContainer.getItem(0)) && this.addition.test(pContainer.getItem(1));
+        return Ingredient.of(this.base).test(pContainer.getItem(0))
+                && this.addition.test(pContainer.getItem(1));
     }
 
     @Override
     public ItemStack assemble(SimpleContainer pContainer) {
-        ItemStack itemstack = this.output.copy();
-        CompoundTag compoundtag = pContainer.getItem(0).getOrCreateTag();
-        int baseFlux = compoundtag.getInt("Flux");
-        output.getOrCreateTag().putInt("Flux", baseFlux + flux);
-        int baseWarp = compoundtag.getInt("Warp");
-        output.getOrCreateTag().putInt("Warp", baseWarp + warp);
-        int baseQuanta = compoundtag.getInt("Quanta");
-        output.getOrCreateTag().putInt("Quanta", baseQuanta + warp);
-        itemstack.setTag(compoundtag.copy());
-        String basePrimary = compoundtag.getString("Primary");
-        String baseSecondary = compoundtag.getString("Secondary");
-        output.getOrCreateTag().putString("Primary", basePrimary);
-        output.getOrCreateTag().putString("Secondary", baseSecondary);
+        ItemStack itemstack = this.base.copy();
+        CompoundTag compoundtag = pContainer.getItem(0).getTag();
+        if (compoundtag != null) {
+            itemstack.setTag(compoundtag.copy());
+        }
+        CompoundTag tag = itemstack.getOrCreateTag();
+
+        int flux = tag.getInt("Flux");
+        tag.putInt("Flux", flux + this.flux);
+
+        int warp = tag.getInt("Warp");
+        tag.putInt("Warp", warp + this.warp);
+
+        int quanta = tag.getInt("Quanta");
+        tag.putInt("Quanta", quanta + this.quanta);
+
         return itemstack;
     }
 
@@ -68,21 +70,7 @@ public class Modification implements Recipe<SimpleContainer> {
 
     @Override
     public ItemStack getResultItem() {
-        SimpleContainer pContainer = new SimpleContainer(ItemStack.EMPTY, ItemStack.EMPTY);
-        ItemStack itemstack = this.output.copy();
-        CompoundTag compoundtag = pContainer.getItem(0).getOrCreateTag();
-        int baseFlux = compoundtag.getInt("Flux");
-        output.getOrCreateTag().putInt("Flux", baseFlux + flux);
-        int baseWarp = compoundtag.getInt("Warp");
-        output.getOrCreateTag().putInt("Warp", baseWarp + warp);
-        int baseQuanta = compoundtag.getInt("Quanta");
-        output.getOrCreateTag().putInt("Quanta", baseQuanta + warp);
-        itemstack.setTag(compoundtag.copy());
-        String basePrimary = compoundtag.getString("Primary");
-        String baseSecondary = compoundtag.getString("Secondary");
-        output.getOrCreateTag().putString("Primary", basePrimary);
-        output.getOrCreateTag().putString("Secondary", baseSecondary);
-        return itemstack;
+        return this.base.copy();
     }
 
     @Override
@@ -113,34 +101,31 @@ public class Modification implements Recipe<SimpleContainer> {
 
         @Override
         public Modification fromJson(ResourceLocation id, JsonObject json) {
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result"));
-            Ingredient base = Ingredient.fromJson(GsonHelper.getAsJsonObject(json, "base"));
+            ItemStack base = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "base"));
             Ingredient addition = Ingredient.fromJson(GsonHelper.getAsJsonObject(json, "addition"));
-            Integer flux = GsonHelper.getAsInt(json, "flux");
-            Integer warp = GsonHelper.getAsInt(json, "warp");
-            Integer quanta = GsonHelper.getAsInt(json, "quanta");
-            return new Modification(id, output, base, addition, flux, warp, quanta);
+            int flux = GsonHelper.getAsInt(json, "flux");
+            int warp = GsonHelper.getAsInt(json, "warp");
+            int quanta = GsonHelper.getAsInt(json, "quanta");
+            return new Modification(id, base, addition, flux, warp, quanta);
         }
 
         @Override
         public Modification fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
-            Ingredient base = Ingredient.fromNetwork(buf);
+            ItemStack base = buf.readItem();
             Ingredient addition = Ingredient.fromNetwork(buf);
-            Integer flux = buf.readInt();
-            Integer warp = buf.readInt();
-            Integer quanta = buf.readInt();
-            ItemStack output = buf.readItem();
-            return new Modification(id, output, base, addition, flux, warp, quanta);
+            int flux = buf.readInt();
+            int warp = buf.readInt();
+            int quanta = buf.readInt();
+            return new Modification(id, base, addition, flux, warp, quanta);
         }
 
         @Override
         public void toNetwork(FriendlyByteBuf buf, Modification recipe) {
-            recipe.base.toNetwork(buf);
+            buf.writeItem(recipe.base);
             recipe.addition.toNetwork(buf);
             buf.writeInt(recipe.flux);
             buf.writeInt(recipe.warp);
             buf.writeInt(recipe.quanta);
-            buf.writeItem(recipe.output);
         }
 
         @Override

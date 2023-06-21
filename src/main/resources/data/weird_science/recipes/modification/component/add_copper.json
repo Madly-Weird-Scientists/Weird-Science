@@ -6,9 +6,6 @@
   "addition": {
     "tag": "forge:ingots/copper"
   },
-  "result": {
-    "item": "weird_science:component"
-  },
   "flux": 2,
   "warp": 0,
   "quanta": 0

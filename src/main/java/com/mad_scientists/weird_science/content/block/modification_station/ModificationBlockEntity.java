@@ -1,6 +1,7 @@
 package com.mad_scientists.weird_science.content.block.modification_station;
 
 import com.mad_scientists.weird_science.init.AllBlockEntities;
+import com.mad_scientists.weird_science.init.AllRecipeTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -13,7 +14,11 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -72,6 +77,7 @@ public class ModificationBlockEntity extends BlockEntity implements IAnimatable,
             }
         };
     }
+
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @javax.annotation.Nullable Direction side) {
@@ -81,6 +87,7 @@ public class ModificationBlockEntity extends BlockEntity implements IAnimatable,
 
         return super.getCapability(cap, side);
     }
+
     @Override
     public void onLoad() {
         super.onLoad();
@@ -129,6 +136,7 @@ public class ModificationBlockEntity extends BlockEntity implements IAnimatable,
             setChanged(pLevel, pPos, pState);
         }
     }
+
     private static boolean hasRecipe(ModificationBlockEntity entity) {
         Level level = entity.level;
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
@@ -145,14 +153,16 @@ public class ModificationBlockEntity extends BlockEntity implements IAnimatable,
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
-        return inventory.getItem(1).getItem() == output.getItem() || inventory.getItem(2).isEmpty();
+        return inventory.getItem(2).getItem() == output.getItem() || inventory.getItem(2).isEmpty();
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
-        return inventory.getItem(1).getMaxStackSize() > inventory.getItem(2).getCount();
+        return inventory.getItem(2).getMaxStackSize() > inventory.getItem(2).getCount();
     }
+
     private static void craftItem(ModificationBlockEntity entity) {
         Level level = entity.level;
+        if(level == null) return;
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
@@ -162,18 +172,25 @@ public class ModificationBlockEntity extends BlockEntity implements IAnimatable,
                 .getRecipeFor(Modification.Type.INSTANCE, inventory, level);
 
         if(match.isPresent()) {
+            ItemStack compareStack = entity.itemHandler.getStackInSlot(2).copy();
+            compareStack.setCount(1);
+            ItemStack result = match.get().assemble(inventory);
+            if(!compareStack.isEmpty() && !ItemStack.isSameItemSameTags(compareStack, result))
+                return;
             entity.itemHandler.extractItem(0,1, false);
             entity.itemHandler.extractItem(1,1, false);
 
-            entity.itemHandler.setStackInSlot(2, new ItemStack(match.get().getResultItem().getItem(),
-                    entity.itemHandler.getStackInSlot(2).getCount() + 1));
+            result.setCount(entity.itemHandler.getStackInSlot(2).getCount()+1);
+            entity.itemHandler.setStackInSlot(2, result);
 
             entity.resetProgress();
         }
     }
+
     private void resetProgress() {
         this.progress = 0;
     }
+
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController(this, "controller", 0, this::predicate));
