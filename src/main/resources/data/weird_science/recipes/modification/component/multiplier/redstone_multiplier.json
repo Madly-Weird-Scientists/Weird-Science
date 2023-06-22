@@ -4,9 +4,12 @@
     "item": "weird_science:component"
   },
   "addition": {
-    "tag": "forge:gems/emerald"
+    "tag": "forge:dusts/redstone"
   },
-  "flux": 4,
+  "flux": 0,
   "warp": 0,
-  "quanta": 0
+  "quanta": 0,
+  "fluxMultiplier": 0,
+  "warpMultiplier": 0,
+  "quantaMultiplier": 2
 }

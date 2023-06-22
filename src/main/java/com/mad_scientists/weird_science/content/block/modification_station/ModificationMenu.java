@@ -33,9 +33,9 @@ public class ModificationMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 27, 43));
-            this.addSlot(new SlotItemHandler(handler, 1, 80, 43));
-            this.addSlot(new ModResultSlot(handler, 2, 133, 43));
+            this.addSlot(new SlotItemHandler(handler, 0, 27, 45));
+            this.addSlot(new SlotItemHandler(handler, 1, 80, 45));
+            this.addSlot(new ModResultSlot(handler, 2, 133, 45));
         });
 
         addDataSlots(data);

@@ -5,5 +5,5 @@ import com.mad_scientists.weird_science.content.block.modification_station.Modif
 import mezz.jei.api.recipe.RecipeType;
 
 public class WeirdScienceRecipeTypes {
-    public static final RecipeType<Modification> MODIFICATION = RecipeType.create(WeirdScience.ID, "cooking", Modification.class);
+    public static final RecipeType<Modification> MODIFICATION = RecipeType.create(WeirdScience.ID, "modification", Modification.class);
 }

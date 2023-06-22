@@ -4,9 +4,12 @@
     "item": "weird_science:component"
   },
   "addition": {
-    "tag": "forge:ingots/gold"
+    "tag": "forge:ender_pearls"
   },
   "flux": 0,
-  "warp": 2,
-  "quanta": 0
+  "warp": 0,
+  "quanta": 0,
+  "fluxMultiplier": 0,
+  "warpMultiplier": 2,
+  "quantaMultiplier": 0
 }

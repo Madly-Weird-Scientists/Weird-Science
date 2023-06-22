@@ -4,9 +4,12 @@
     "item": "weird_science:component"
   },
   "addition": {
-    "tag": "forge:gems/amethyst"
+    "tag": "forge:gems/diamond"
   },
   "flux": 0,
-  "warp": 4,
-  "quanta": 0
+  "warp": 0,
+  "quanta": 4,
+  "fluxMultiplier": 0,
+  "warpMultiplier": 0,
+  "quantaMultiplier": 0
 }

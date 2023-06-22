@@ -4,9 +4,12 @@
     "item": "weird_science:component"
   },
   "addition": {
-    "tag": "forge:gems/diamond"
+    "item": "minecraft:dragon_breath"
   },
   "flux": 0,
   "warp": 0,
-  "quanta": 4
+  "quanta": 0,
+  "fluxMultiplier": 0,
+  "warpMultiplier": 3,
+  "quantaMultiplier": 0
 }

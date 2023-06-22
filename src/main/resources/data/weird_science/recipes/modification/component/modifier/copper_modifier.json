@@ -4,9 +4,12 @@
     "item": "weird_science:component"
   },
   "addition": {
-    "tag": "forge:ingots/netherite"
+    "tag": "forge:ingots/copper"
   },
   "flux": 2,
-  "warp": 2,
-  "quanta": 2
+  "warp": 0,
+  "quanta": 0,
+  "fluxMultiplier": 0,
+  "warpMultiplier": 0,
+  "quantaMultiplier": 0
 }

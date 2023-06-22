@@ -51,7 +51,7 @@ public class ModificationBlockEntity extends BlockEntity implements IAnimatable,
 
     protected final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 72;
+    private int maxProgress = 1;
     private final AnimationFactory manager = new AnimationFactory(this);
 
     public ModificationBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {

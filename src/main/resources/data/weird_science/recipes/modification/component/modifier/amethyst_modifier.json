@@ -1,0 +1,15 @@
+{
+  "type": "weird_science:modification",
+  "base": {
+    "item": "weird_science:component"
+  },
+  "addition": {
+    "tag": "forge:gems/amethyst"
+  },
+  "flux": 0,
+  "warp": 4,
+  "quanta": 0,
+  "fluxMultiplier": 0,
+  "warpMultiplier": 0,
+  "quantaMultiplier": 0
+}

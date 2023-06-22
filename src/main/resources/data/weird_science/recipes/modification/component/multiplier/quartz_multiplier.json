@@ -4,9 +4,12 @@
     "item": "weird_science:component"
   },
   "addition": {
-    "tag": "forge:ingots/aluminum"
+    "tag": "forge:gems/quartz"
   },
   "flux": 0,
   "warp": 0,
-  "quanta": 2
+  "quanta": 0,
+  "fluxMultiplier": 2,
+  "warpMultiplier": 0,
+  "quantaMultiplier": 0
 }

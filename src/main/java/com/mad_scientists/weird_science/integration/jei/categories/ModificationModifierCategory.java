@@ -28,15 +28,15 @@ import java.util.Optional;
 
 @SuppressWarnings("removal")
 @MethodsReturnNonnullByDefault
-public class ModificationCategory implements IRecipeCategory<Modification> {
+public class ModificationModifierCategory implements IRecipeCategory<Modification> {
     public final static ResourceLocation UID = new ResourceLocation(WeirdScience.ID, "modification");
     private final IDrawable background;
     private final IDrawable icon;
     private final String additionSlotName = "addition";
 
-    public ModificationCategory(IGuiHelper helper) {
+    public ModificationModifierCategory(IGuiHelper helper) {
         ResourceLocation backgroundImage = new ResourceLocation(WeirdScience.ID, "textures/gui/jei/modification.png");
-        background = helper.createDrawable(backgroundImage, 29, 16, 136, 71);
+        background = helper.createDrawable(backgroundImage, 0, 0, 136, 71);
         icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(AllBlocks.MODIFICATION_STATION.get()));
     }
     @Override

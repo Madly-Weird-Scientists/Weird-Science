@@ -1,0 +1,15 @@
+{
+  "type": "weird_science:modification",
+  "base": {
+    "item": "weird_science:component"
+  },
+  "addition": {
+    "item": "minecraft:blaze_powder"
+  },
+  "flux": 0,
+  "warp": 0,
+  "quanta": 0,
+  "fluxMultiplier": 3,
+  "warpMultiplier": 0,
+  "quantaMultiplier": 0
+}
